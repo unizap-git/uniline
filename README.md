@@ -100,42 +100,6 @@ function App() {
 - Others
 - And more...
 
-## Development
-
-### Getting Started
-
-1. **Install dependencies**:
-```bash
-npm install
-```
-
-2. **Run the development server**:
-```bash
-npm run dev
-```
-
-3. **Open** [http://localhost:3000](http://localhost:3000) in your browser
-
-### Build for Production
-
-```bash
-npm run build
-npm start
-```
-
-### Generate Icon Font
-
-```bash
-npm run generate:icons
-```
-
-## Tech Stack
-
-- **Next.js 15** - React framework with App Router
-- **TypeScript** - Type-safe development
-- **Tailwind CSS** - Utility-first styling
-- **svgtofont** - Icon font generation
-
 ## License
 
 ISC
