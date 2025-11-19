@@ -1,15 +1,15 @@
 @font-face {
-  font-family: "unicon";
-  src: url('unicon.eot?t=1763554263289'); /* IE9*/
-  src: url('unicon.eot?t=1763554263289#iefix') format('embedded-opentype') /* IE6-IE8 */,
-  url('unicon.woff2?t=1763554263289') format('woff2'),
-  url('unicon.woff?t=1763554263289') format('woff'),
-  url('unicon.ttf?t=1763554263289') format('truetype'),
-  url('unicon.svg?t=1763554263289') format('svg');
+  font-family: "uniline";
+  src: url('uniline.eot?t=1763558840982'); /* IE9*/
+  src: url('uniline.eot?t=1763558840982#iefix') format('embedded-opentype') /* IE6-IE8 */,
+  url('uniline.woff2?t=1763558840982') format('woff2'),
+  url('uniline.woff?t=1763558840982') format('woff'),
+  url('uniline.ttf?t=1763558840982') format('truetype'),
+  url('uniline.svg?t=1763558840982') format('svg');
 }
 
 [class^="uni-"], [class*=" uni-"] {
-  font-family: 'unicon' !important;
+  font-family: 'uniline' !important;
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
