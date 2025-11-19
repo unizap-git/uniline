@@ -1,0 +1,81 @@
+{
+  "name": "@unizap/uniline",
+  "version": "1.0.0",
+  "description": "A library of customizable icons, available as React components, CSS icon font, or via CDN. Supports size, color, stroke width, and filled variants.",
+  "main": "index.js",
+  "types": "index.d.ts",
+  "unpkg": "dist/unicon.min.css",
+  "exports": {
+    ".": {
+      "types": "./index.d.ts",
+      "default": "./index.js"
+    },
+    "./Icon": {
+      "types": "./Icon.d.ts",
+      "default": "./Icon.js"
+    },
+    "./icons/*": {
+      "types": "./icons/*.d.ts",
+      "default": "./icons/*.js"
+    }
+  },
+  "sideEffects": false,
+  "files": [
+    "index.js",
+    "index.d.ts",
+    "Icon.js",
+    "Icon.d.ts",
+    "types.d.ts",
+    "icons/**/*.js",
+    "icons/**/*.d.ts",
+    "dist/unicon.css",
+    "dist/unicon.min.css",
+    "dist/unicon.woff",
+    "dist/unicon.woff2",
+    "dist/unicon.ttf",
+    "dist/unicon.eot"
+  ],
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "generate-components": "node scripts/generateIconComponents.js",
+    "generate-icons": "node scripts/generateIconList.js",
+    "build:font": "node scripts/generateIconFontV2.mjs"
+  },
+  "keywords": [],
+  "author": "Unizap",
+  "license": "ISC",
+  "dependencies": {
+    "next": "^16.0.1",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.28.5",
+    "@babel/preset-react": "^7.28.5",
+    "@svgr/webpack": "^8.1.0",
+    "@types/estree": "^1.0.8",
+    "@types/json-schema": "^7.0.15",
+    "@types/node": "^24.10.0",
+    "@types/react": "^19.2.2",
+    "@types/react-dom": "^19.2.2",
+    "@unizap/unicss": "^2.0.4",
+    "autoprefixer": "^10.4.21",
+    "babel-loader": "^10.0.0",
+    "eslint": "^9.39.1",
+    "eslint-config-next": "^16.0.1",
+    "glob": "^11.0.3",
+    "html2canvas": "^1.4.1",
+    "postcss": "^8.5.6",
+    "postcss-import": "^16.1.1",
+    "postcss-nested": "^7.0.2",
+    "svgtofont": "^6.5.0",
+    "terser-webpack-plugin": "^5.3.14",
+    "typescript": "^5.9.3",
+    "webfonts-generator": "^0.4.0",
+    "webpack": "^5.102.1",
+    "webpack-cli": "^6.0.1"
+  }
+}

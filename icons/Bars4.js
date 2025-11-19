@@ -1,0 +1,31 @@
+'use strict';
+
+var React = require('react');
+
+function Bars4(props) {
+  var size = props.size !== undefined ? props.size : 24;
+  var strokeWidth = props.strokeWidth !== undefined ? props.strokeWidth : 1.5;
+  var color = props.color !== undefined ? props.color : 'currentColor';
+  var fill = props.fill !== undefined ? props.fill : false;
+  var className = props.className !== undefined ? props.className : '';
+  var style = props.style !== undefined ? props.style : {};
+
+  var svgContent = fill ? '<path fill-rule="evenodd" d="M3 5.25a.75.75 0 0 1 .75-.75h16.5a.75.75 0 0 1 0 1.5H3.75A.75.75 0 0 1 3 5.25Zm0 4.5A.75.75 0 0 1 3.75 9h16.5a.75.75 0 0 1 0 1.5H3.75A.75.75 0 0 1 3 9.75Zm0 4.5a.75.75 0 0 1 .75-.75h16.5a.75.75 0 0 1 0 1.5H3.75a.75.75 0 0 1-.75-.75Zm0 4.5a.75.75 0 0 1 .75-.75h16.5a.75.75 0 0 1 0 1.5H3.75a.75.75 0 0 1-.75-.75Z" clip-rule="evenodd"/>' : '<path d="M3.75 5.25h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5"/>';
+
+  return React.createElement('svg', {
+    xmlns: 'http://www.w3.org/2000/svg',
+    width: size,
+    height: size,
+    viewBox: '0 0 24 24',
+    fill: fill ? color : 'none',
+    stroke: fill ? 'none' : color,
+    strokeWidth: fill ? 0 : strokeWidth,
+    strokeLinecap: 'round',
+    strokeLinejoin: 'round',
+    className: className,
+    style: style,
+    dangerouslySetInnerHTML: { __html: svgContent }
+  });
+}
+
+module.exports = Bars4;

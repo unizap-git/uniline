@@ -1,0 +1,31 @@
+'use strict';
+
+var React = require('react');
+
+function CodeBracket(props) {
+  var size = props.size !== undefined ? props.size : 24;
+  var strokeWidth = props.strokeWidth !== undefined ? props.strokeWidth : 1.5;
+  var color = props.color !== undefined ? props.color : 'currentColor';
+  var fill = props.fill !== undefined ? props.fill : false;
+  var className = props.className !== undefined ? props.className : '';
+  var style = props.style !== undefined ? props.style : {};
+
+  var svgContent = fill ? '<path fill-rule="evenodd" d="M14.447 3.026a.75.75 0 0 1 .527.921l-4.5 16.5a.75.75 0 0 1-1.448-.394l4.5-16.5a.75.75 0 0 1 .921-.527ZM16.72 6.22a.75.75 0 0 1 1.06 0l5.25 5.25a.75.75 0 0 1 0 1.06l-5.25 5.25a.75.75 0 1 1-1.06-1.06L21.44 12l-4.72-4.72a.75.75 0 0 1 0-1.06Zm-9.44 0a.75.75 0 0 1 0 1.06L2.56 12l4.72 4.72a.75.75 0 0 1-1.06 1.06L.97 12.53a.75.75 0 0 1 0-1.06l5.25-5.25a.75.75 0 0 1 1.06 0Z" clip-rule="evenodd"/>' : '<path d="M17.25 6.75 22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3-4.5 16.5"/>';
+
+  return React.createElement('svg', {
+    xmlns: 'http://www.w3.org/2000/svg',
+    width: size,
+    height: size,
+    viewBox: '0 0 24 24',
+    fill: fill ? color : 'none',
+    stroke: fill ? 'none' : color,
+    strokeWidth: fill ? 0 : strokeWidth,
+    strokeLinecap: 'round',
+    strokeLinejoin: 'round',
+    className: className,
+    style: style,
+    dangerouslySetInnerHTML: { __html: svgContent }
+  });
+}
+
+module.exports = CodeBracket;

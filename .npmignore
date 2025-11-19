@@ -1,0 +1,52 @@
+# Development files
+.claude/
+.vscode/
+node_modules/
+test/
+
+# Source files
+public/
+app/
+components/
+lib/
+scripts/
+
+# Config files
+next.config.ts
+postcss.config.js
+tailwind.config.ts
+tsconfig.json
+.eslintrc.json
+webpack.config.js
+
+# Documentation
+*.md
+!README.md
+!CDN_USAGE.md
+!STANDALONE_CDN.md
+!ICON_FONT.md
+!ICON_CSS.md
+
+# Git files
+.git/
+.gitignore
+
+# Build artifacts
+.next/
+build/
+
+# CDN examples and preview (for development only)
+cdn-example.html
+cdn.js
+standalone-example.html
+icon-font-example.html
+dist/unicon-preview.html
+dist/unicon.svg
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Package files
+*.tgz
