@@ -10,7 +10,7 @@ function EllipsisHorizontal(props) {
   var className = props.className !== undefined ? props.className : '';
   var style = props.style !== undefined ? props.style : {};
 
-  var svgContent = fill ? '<path fill-rule="evenodd" d="M4.5 12a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0Zm6 0a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0Zm6 0a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0Z" clip-rule="evenodd"/>' : '<path d="M6.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM12.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM18.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z"/>';
+  var svgContent = fill ? '<path fill-rule="evenodd" d="M4.5 12a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0Zm6 0a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0Zm6 0a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0Z" clip-rule="evenodd"/>' : '<path d="M6.8,12c0,.4-.3.8-.8.8s-.8-.3-.8-.8.3-.8.8-.8.8.3.8.8ZM12.8,12c0,.4-.3.8-.8.8s-.8-.3-.8-.8.3-.8.8-.8.8.3.8.8ZM18.8,12c0,.4-.3.8-.8.8s-.8-.3-.8-.8.3-.8.8-.8.8.3.8.8Z" stroke-miterlimit="10"/>';
 
   return React.createElement('svg', {
     xmlns: 'http://www.w3.org/2000/svg',

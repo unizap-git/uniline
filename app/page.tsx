@@ -66,7 +66,7 @@ export default function Home() {
     { name: 'clipboard-document', category: 'business' },
     { name: 'bell', category: 'system' },
     { name: 'apple', category: 'brands' },
-    { name: 'npm', category: 'brands' },
+    { name: 'npm', category: 'logo' },
     { name: 'eye', category: 'system' },
     { name: 'clock', category: 'business' },
     { name: 'cube', category: 'system' },
@@ -112,7 +112,7 @@ export default function Home() {
       <CommonHeader />
 
       {/* Hero Section */}
-      <section className="relative pt-24 md:pt-32 pb-20 overflow-hidden min-h-dvh max-w-7xl mx-auto px-4 sm:px-0 lg:px-8">
+      <section className="relative pt-24 md:pt-32 pb-20 overflow-hidden lg:min-h-dvh max-w-7xl mx-auto px-4 sm:px-0 lg:px-8">
         {/* Floating Icons Background */}
         <div className="hidden md:block absolute inset-4 sm:inset-0 lg:inset-8 pointer-events-none text-color-gray-400 dark:text-color-gray-500">
           {floatingIcons.map((icon, index) => (
@@ -162,7 +162,7 @@ export default function Home() {
               <span className="pr-4" title="HTML">
                 <Icon
                   name="html"
-                  category="brands"
+                  category="logo"
                   fill
                   color='#e5532c'
                   
@@ -171,14 +171,14 @@ export default function Home() {
               <span className="pr-4" title="React">
                 <Icon
                   name="react"
-                  category="brands"
+                  category="logo"
                    color='#18d1ff'
                 />
               </span>
               <span className="pr-4" title="Next">
                  <Icon
                   name="next-js"
-                  category="brands"
+                  category="logo"
                   fill
                    
                 />
@@ -186,7 +186,7 @@ export default function Home() {
               <span className="text-2xl" title="Angular">
                 <Icon
                   name="angular-js"
-                  category="brands"
+                  category="logo"
                   fill
                    color='#e3383d'
                 />

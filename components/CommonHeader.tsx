@@ -55,15 +55,17 @@ export default function CommonHeader() {
           </div>
 
           {/* Navigation */}
-          <div className="items-center gap-4 hidden md:flex">
-            <Link href="/icons" className="text-sm font-medium text-color-gray-600 dark:text-color-gray-300 hover:text-color-gray-900 dark:hover:text-color-white no-underline">
-              Icons
-            </Link>
-            <Link href="/get-started" className="text-sm font-medium text-color-gray-600 dark:text-color-gray-300 hover:text-color-gray-900 dark:hover:text-color-white no-underline">
-              Docs
-            </Link>
-            <a href="https://github.com" className="text-sm font-medium text-color-gray-600 dark:text-color-gray-300 hover:text-color-gray-900 dark:hover:text-color-white no-underline">
-              npm
+          <div className="items-center gap-4 flex">
+            <a href="https://www.npmjs.com/package/@unizap/uniline" target='_blank'
+              title='View on npm'
+                className="md:flex hidden cursor-pointer items-center gap-2 p-2.5 rounded-full bg-color-gray-100 dark:bg-color-gray-800 hover:bg-color-gray-200 dark:hover:bg-color-gray-700 transition-color"
+>
+              <Icon
+                  name="npm"
+                  category="logo"
+                  size={20}
+                  className="text-color-gray-700 dark:text-color-gray-300"
+                />
             </a>
             {/* Theme Toggle */}
             <div className="relative">

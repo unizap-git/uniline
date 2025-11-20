@@ -57,18 +57,19 @@ export default function ControlBar({
       <div className="flex flex-col gap-1.5 ">
         <span className="text-sm font-medium text-color-gray-400 dark:text-color-gray-400 pl-4">Color</span>
         <div className="flex items-center gap-1 bg-color-gray-100 dark:bg-color-gray-700 rounded-full px-1.5 h-10 border border-color-gray-200 dark:border-color-gray-600">
-          <div 
-            className="w-7 h-7 shrink-0 rounded-full border-2 border-color-gray-200 dark:border-color-gray-500 cursor-pointer"
-            style={{ backgroundColor: color }}
-            onClick={() => document.getElementById('control-color-picker')?.click()}
-          />
-          <input
-            id="control-color-picker"
-            type="color"
-            value={color}
-            onChange={(e) => onColorChange(e.target.value)}
-            className="opacity-0 absolute w-0 h-0"
-          />
+          <label htmlFor="control-color-picker" className="w-7 h-7 shrink-0 rounded-full border-2 border-color-gray-200 dark:border-color-gray-500 cursor-pointer overflow-hidden relative">
+            <div
+              className="absolute inset-0 pointer-events-none"
+              style={{ backgroundColor: color }}
+            />
+            <input
+              id="control-color-picker"
+              type="color"
+              value={color}
+              onChange={(e) => onColorChange(e.target.value)}
+              className="opacity-0 w-full h-full cursor-pointer"
+            />
+          </label>
           <input
             type="text"
             value={color.toUpperCase()}

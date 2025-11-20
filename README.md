@@ -30,7 +30,7 @@ pnpm add @unizap/uniline
 ### CDN
 
 ```html
-<link rel="stylesheet" href="https://unpkg.com/uniline@latest/dist/uniline.min.css">
+<link rel="stylesheet" href="https://unpkg.com/@unizap/uniline@latest/dist/uniline.min.css">
 ```
 
 ## Usage
@@ -41,7 +41,7 @@ The simplest way to use Uniline - just include the CSS and use `<i>` tags:
 
 ```html
 <!-- Include CSS -->
-<link rel="stylesheet" href="https://unpkg.com/uniline@latest/dist/uniline.min.css">
+<link rel="stylesheet" href="https://unpkg.com/@unizap/uniline@latest/dist/uniline.min.css">
 
 <!-- Outline icons -->
 <i class="uni-heart" style="color: #e74c3c;"></i>

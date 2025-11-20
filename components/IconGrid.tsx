@@ -160,7 +160,7 @@ export default function IconGrid({
                 >
                   {/* Icon Display */}
                   <div className="cursor-pointer flex relative flex-col items-center justify-center p-4 aspect-square rounded-xl border border-color-gray-200 dark:border-color-gray-600 transition-all">
-                    <div onClick={() => onIconClick(icon, iconSettings.variant === "fill")} className="w-full h-full flex items-center justify-center">
+                    <div onClick={() => onIconClick(icon, iconSettings.variant === "fill")} className="w-full h-full flex items-center justify-center overflow-hidden">
                       <Icon
                         name={icon.name}
                         category={icon.category}
@@ -202,8 +202,8 @@ export default function IconGrid({
                      </div>
                     </div>
                   </div>
-                  <span className="mt-2 block text-xs text-color-gray-600 dark:text-color-gray-300 text-center line-clamp-2">
-                      {icon.name}
+                  <span className="select-all mt-2 block text-xs text-color-gray-600 dark:text-color-gray-300 text-center line-clamp-2">
+                      uni-{icon.name}
                   </span>
 
                  

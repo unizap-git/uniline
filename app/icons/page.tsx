@@ -111,10 +111,10 @@ export default function AllIcons() {
 
         <main className="flex-1">
           {/* Search and Controls Bar */}
-          <div className="sticky md:top-16 top-14 z-30 px-4 md:px-8 bg-color-white dark:bg-color-gray-950 py-4">
+          <div className="md:sticky z-99 md:top-16 fixed bottom-0 inset-x-0 px-4 md:px-8 bg-color-white dark:bg-color-gray-950 py-4">
               <div className="flex gap-4 items-start">
                 {/* Search Bar */}
-                <div className="relative flex-1 w-full">
+                <div className="relative flex-1 w-full pr-16 md:pr-0">
                   <Icon
                     name="magnifying-glass"
                     category="editor"
@@ -126,7 +126,7 @@ export default function AllIcons() {
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
                     placeholder="Search icons..."
-                    className="w-full pl-10 pr-10 py-2.5 bg-color-gray-100 dark:bg-color-gray-800 rounded-lg border border-color-gray-200 dark:border-color-gray-700 focus:outline-none focus:ring-2 ring-color-primary dark:text-color-white"
+                    className="w-full pl-10 pr-10 md:py-2.5 py-3 bg-color-gray-100 dark:bg-color-gray-800 rounded-full border border-color-gray-200 dark:border-color-gray-700 focus:outline-none focus:ring-2 ring-color-primary dark:text-color-white"
                   />
                   {searchQuery && (
                     <button
@@ -139,64 +139,64 @@ export default function AllIcons() {
                 </div>
 
                 {/* Settings Dropdown */}
-                <div className="relative">
-                  <button
-                    onClick={() => setShowControlBar(!showControlBar)}
-                    className={`flex cursor-pointer items-center gap-2 p-2.5 rounded-full bg-color-gray-100 dark:bg-color-gray-800 hover:bg-color-gray-200 dark:hover:bg-color-gray-700 transition-color ${
-                      showControlBar
-                        ? 'bg-color-secondary/10 border-color-secondary'
-                        : 'bg-color-white dark:bg-color-gray-800'
-                    }`}
-                    title="Icon Settings"
-                  >
-                    <Icon
-                      name="cog-6-tooth"
-                      category="system"
-                      size={20}
-                      className={`transition-color ${
-                        showControlBar
-                          ? 'text-color-secondary dark:text-color-blue-400'
-                          : 'text-color-gray-600 dark:text-color-gray-400'
-                      }`}
-                    />
-                  </button>
-
-                  {/* Settings Dropdown */}
-                  {showControlBar && (
-                    <>
-                      <div
-                        className="fixed inset-0 z-10"
-                        onClick={() => setShowControlBar(false)}
-                      />
-                      <div className="absolute right-0 top-12 bg-color-white dark:bg-color-gray-800 rounded-2xl shadow-2xl border border-color-gray-200 dark:border-color-gray-700 p-5 w-[250px] z-50">
-                        <div className="flex items-center justify-between mb-4">
-                          <h3 className="text-lg font-semibold text-color-gray-900 dark:text-color-white">
-                            Icon Settings
-                          </h3>
-                          <button
-                            onClick={() => setShowControlBar(false)}
-                            className="flex cursor-pointer items-center justify-center w-8 h-8 rounded-full hover:bg-color-gray-100 dark:hover:bg-color-gray-700 text-color-gray-400 hover:text-color-gray-600 dark:hover:text-color-gray-300 transition-all"
-                          >
-                            <Icon name="x-mark" category="system" size={16} />
-                          </button>
-                        </div>
-
-                        <ControlBar
-                          isFill={iconSettings.variant === 'fill'}
-                          className="flex flex-col gap-4"
-                          onFillChange={(fill) => handleIconSettingsChange({ ...iconSettings, variant: fill ? 'fill' : 'line' })}
-                          color={iconSettings.color}
-                          onColorChange={(color) => handleIconSettingsChange({ ...iconSettings, color })}
-                          size={iconSettings.size}
-                          onSizeChange={(size) => handleIconSettingsChange({ ...iconSettings, size })}
-                          strokeWidth={iconSettings.strokeWidth}
-                          onStrokeWidthChange={(strokeWidth) => handleIconSettingsChange({ ...iconSettings, strokeWidth })}
-                          showStroke={true}
-                        />
-                      </div>
-                    </>
-                  )}
-                </div>
+                                <div className="md:relative fixed top-2 right-[72px] md:top-auto md:right-auto">
+                                  <button
+                                    onClick={() => setShowControlBar(!showControlBar)}
+                                    className={`flex cursor-pointer items-center gap-2 p-2.5 rounded-full bg-color-gray-100 dark:bg-color-gray-800 hover:bg-color-gray-200 dark:hover:bg-color-gray-700 transition-color ${
+                                      showControlBar
+                                        ? 'bg-color-secondary/10 border-color-secondary'
+                                        : 'bg-color-white dark:bg-color-gray-800'
+                                    }`}
+                                    title="Icon Settings"
+                                  >
+                                    <Icon
+                                      name="cog-6-tooth"
+                                      category="system"
+                                      size={20}
+                                      className={`transition-color ${
+                                        showControlBar
+                                          ? 'text-color-secondary dark:text-color-blue-400'
+                                          : 'text-color-gray-600 dark:text-color-gray-400'
+                                      }`}
+                                    />
+                                  </button>
+                
+                                  {/* Settings Dropdown */}
+                                  {showControlBar && (
+                                    <>
+                                      <div
+                                        className="fixed inset-0 z-10"
+                                        onClick={() => setShowControlBar(false)}
+                                      />
+                                      <div className="absolute right-0 top-12 bg-color-white dark:bg-color-gray-800 rounded-2xl shadow-2xl border border-color-gray-200 dark:border-color-gray-700 p-5 w-[250px] z-50">
+                                        <div className="flex items-center justify-between mb-4">
+                                          <h3 className="text-lg font-semibold text-color-gray-900 dark:text-color-white">
+                                            Icon Settings
+                                          </h3>
+                                          <button
+                                            onClick={() => setShowControlBar(false)}
+                                            className="flex cursor-pointer items-center justify-center w-8 h-8 rounded-full hover:bg-color-gray-100 dark:hover:bg-color-gray-700 text-color-gray-400 hover:text-color-gray-600 dark:hover:text-color-gray-300 transition-all"
+                                          >
+                                            <Icon name="x-mark" category="system" size={16} />
+                                          </button>
+                                        </div>
+                
+                                        <ControlBar
+                                          isFill={iconSettings.variant === 'fill'}
+                                          className="flex flex-col gap-4"
+                                          onFillChange={(fill) => handleIconSettingsChange({ ...iconSettings, variant: fill ? 'fill' : 'line' })}
+                                          color={iconSettings.color}
+                                          onColorChange={(color) => handleIconSettingsChange({ ...iconSettings, color })}
+                                          size={iconSettings.size}
+                                          onSizeChange={(size) => handleIconSettingsChange({ ...iconSettings, size })}
+                                          strokeWidth={iconSettings.strokeWidth}
+                                          onStrokeWidthChange={(strokeWidth) => handleIconSettingsChange({ ...iconSettings, strokeWidth })}
+                                          showStroke={true}
+                                        />
+                                      </div>
+                                    </>
+                                  )}
+                                </div>
               </div>
           </div>
 

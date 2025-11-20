@@ -126,31 +126,17 @@ export const iconCategories: IconCategory[] = [
     name: "Brands",
     icons: [
       { name: "amazon", componentName: "amazon", category: "brands", keywords: ["amazon"] },
-      { name: "angular-js", componentName: "angular-js", category: "brands", keywords: ["angular","js"] },
       { name: "apple", componentName: "apple", category: "brands", keywords: ["apple"] },
-      { name: "bitcoin", componentName: "bitcoin", category: "brands", keywords: ["bitcoin"] },
-      { name: "css", componentName: "css", category: "brands", keywords: ["css"] },
       { name: "discord", componentName: "discord", category: "brands", keywords: ["discord"] },
       { name: "dribbble", componentName: "dribbble", category: "brands", keywords: ["dribbble"] },
       { name: "dropbox", componentName: "dropbox", category: "brands", keywords: ["dropbox"] },
       { name: "facebook", componentName: "facebook", category: "brands", keywords: ["facebook"] },
-      { name: "github", componentName: "github", category: "brands", keywords: ["github"] },
-      { name: "gitlab", componentName: "gitlab", category: "brands", keywords: ["gitlab"] },
       { name: "google", componentName: "google", category: "brands", keywords: ["google"] },
-      { name: "html", componentName: "html", category: "brands", keywords: ["html"] },
       { name: "instagram", componentName: "instagram", category: "brands", keywords: ["instagram"] },
       { name: "linkedin", componentName: "linkedin", category: "brands", keywords: ["linkedin"] },
-      { name: "mastercard", componentName: "mastercard", category: "brands", keywords: ["mastercard"] },
-      { name: "mongo-db", componentName: "mongo-db", category: "brands", keywords: ["mongo","db"] },
-      { name: "next-js", componentName: "next-js", category: "brands", keywords: ["next","js"] },
-      { name: "npm", componentName: "npm", category: "brands", keywords: ["npm"] },
-      { name: "react", componentName: "react", category: "brands", keywords: ["react"] },
       { name: "reddit", componentName: "reddit", category: "brands", keywords: ["reddit"] },
       { name: "stackoverflow", componentName: "stackoverflow", category: "brands", keywords: ["stackoverflow"] },
-      { name: "tailwind", componentName: "tailwind", category: "brands", keywords: ["tailwind"] },
       { name: "twitter-x", componentName: "twitter-x", category: "brands", keywords: ["twitter","x"] },
-      { name: "visa", componentName: "visa", category: "brands", keywords: ["visa"] },
-      { name: "vue", componentName: "vue", category: "brands", keywords: ["vue"] },
       { name: "whatsapp", componentName: "whatsapp", category: "brands", keywords: ["whatsapp"] },
       { name: "windows", componentName: "windows", category: "brands", keywords: ["windows"] },
       { name: "youtube", componentName: "youtube", category: "brands", keywords: ["youtube"] }
@@ -230,6 +216,7 @@ export const iconCategories: IconCategory[] = [
       { name: "currency-dollar", componentName: "currency-dollar", category: "currency", keywords: ["currency","dollar"] },
       { name: "currency-euro", componentName: "currency-euro", category: "currency", keywords: ["currency","euro"] },
       { name: "currency-pound", componentName: "currency-pound", category: "currency", keywords: ["currency","pound"] },
+      { name: "currency-rupee-2", componentName: "currency-rupee-2", category: "currency", keywords: ["currency","rupee","2"] },
       { name: "currency-rupee", componentName: "currency-rupee", category: "currency", keywords: ["currency","rupee"] },
       { name: "currency-yen", componentName: "currency-yen", category: "currency", keywords: ["currency","yen"] }
     ]
@@ -281,7 +268,6 @@ export const iconCategories: IconCategory[] = [
       { name: "align-justify", componentName: "align-justify", category: "editor", keywords: ["align","justify"] },
       { name: "align-left", componentName: "align-left", category: "editor", keywords: ["align","left"] },
       { name: "align-right", componentName: "align-right", category: "editor", keywords: ["align","right"] },
-      { name: "bold", componentName: "bold", category: "editor", keywords: ["bold"] },
       { name: "font-color", componentName: "font-color", category: "editor", keywords: ["font","color"] },
       { name: "font-family", componentName: "font-family", category: "editor", keywords: ["font","family"] },
       { name: "font-highlight", componentName: "font-highlight", category: "editor", keywords: ["font","highlight"] },
@@ -456,6 +442,28 @@ export const iconCategories: IconCategory[] = [
     ]
   },
   {
+    id: "logo",
+    name: "Logo",
+    icons: [
+      { name: "angular-js", componentName: "angular-js", category: "logo", keywords: ["angular","js"] },
+      { name: "bitcoin", componentName: "bitcoin", category: "logo", keywords: ["bitcoin"] },
+      { name: "css", componentName: "css", category: "logo", keywords: ["css"] },
+      { name: "github", componentName: "github", category: "logo", keywords: ["github"] },
+      { name: "gitlab", componentName: "gitlab", category: "logo", keywords: ["gitlab"] },
+      { name: "html", componentName: "html", category: "logo", keywords: ["html"] },
+      { name: "mastercard", componentName: "mastercard", category: "logo", keywords: ["mastercard"] },
+      { name: "mongo-db", componentName: "mongo-db", category: "logo", keywords: ["mongo","db"] },
+      { name: "next-js", componentName: "next-js", category: "logo", keywords: ["next","js"] },
+      { name: "npm", componentName: "npm", category: "logo", keywords: ["npm"] },
+      { name: "react", componentName: "react", category: "logo", keywords: ["react"] },
+      { name: "tailwind", componentName: "tailwind", category: "logo", keywords: ["tailwind"] },
+      { name: "upi-2", componentName: "upi-2", category: "logo", keywords: ["upi","2"] },
+      { name: "upi", componentName: "upi", category: "logo", keywords: ["upi"] },
+      { name: "visa", componentName: "visa", category: "logo", keywords: ["visa"] },
+      { name: "vue", componentName: "vue", category: "logo", keywords: ["vue"] }
+    ]
+  },
+  {
     id: "media",
     name: "Media",
     icons: [
@@ -540,13 +548,6 @@ export const iconCategories: IconCategory[] = [
       { name: "slash", componentName: "slash", category: "others", keywords: ["slash"] },
       { name: "sparkles", componentName: "sparkles", category: "others", keywords: ["sparkles"] },
       { name: "trophy", componentName: "trophy", category: "others", keywords: ["trophy"] }
-    ]
-  },
-  {
-    id: "social",
-    name: "Social",
-    icons: [
-      { name: "rss", componentName: "rss", category: "social", keywords: ["rss"] }
     ]
   },
   {
@@ -757,6 +758,8 @@ export const iconCategories: IconCategory[] = [
     id: "transport",
     name: "Transport",
     icons: [
+      { name: "ambulance", componentName: "ambulance", category: "transport", keywords: ["ambulance"] },
+      { name: "car", componentName: "car", category: "transport", keywords: ["car"] },
       { name: "truck-2", componentName: "truck-2", category: "transport", keywords: ["truck","2"] },
       { name: "truck-clock", componentName: "truck-clock", category: "transport", keywords: ["truck","clock"] },
       { name: "truck", componentName: "truck", category: "transport", keywords: ["truck"] }
@@ -786,6 +789,7 @@ export const iconCategories: IconCategory[] = [
     name: "Weather",
     icons: [
       { name: "cloud", componentName: "cloud", category: "weather", keywords: ["cloud"] },
+      { name: "flashlight", componentName: "flashlight", category: "weather", keywords: ["flashlight"] },
       { name: "moon-plus", componentName: "moon-plus", category: "weather", keywords: ["moon","plus"] },
       { name: "moon", componentName: "moon", category: "weather", keywords: ["moon"] },
       { name: "sun", componentName: "sun", category: "weather", keywords: ["sun"] }

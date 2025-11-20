@@ -1,6 +1,6 @@
 {
   "name": "@unizap/uniline",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A library of customizable icons, available as React components, CSS icon font, or via CDN. Supports size, color, stroke width, and filled variants.",
   "main": "index.js",
   "types": "index.d.ts",
@@ -44,15 +44,34 @@
     "generate-icons": "node scripts/generateIconList.js",
     "build:font": "node scripts/generateIconFontV2.mjs"
   },
-  "keywords": [],
+  "keywords": [
+    "icons",
+    "icon-library",
+    "icon-set",
+    "ui-icons",
+    "react-icons",
+    "css-icons",
+    "icon-font",
+    "svg-icons",
+    "line-icons",
+    "uniline",
+    "unizap",
+    "design-system",
+    "frontend",
+    "ui-kit",
+    "vector-icons",
+    "stroke-icons",
+    "filled-icons",
+    "cdn-icons",
+    "web-icons"
+  ],
   "author": "Unizap",
-  "license": "ISC",
-  "dependencies": {
+  "license": "MIT",
+  "homepage": "https://unilineicon.netlify.app",
+  "devDependencies": {
     "next": "^16.0.1",
     "react": "^19.2.0",
-    "react-dom": "^19.2.0"
-  },
-  "devDependencies": {
+    "react-dom": "^19.2.0",
     "@babel/core": "^7.28.5",
     "@babel/preset-react": "^7.28.5",
     "@svgr/webpack": "^8.1.0",

@@ -106,7 +106,7 @@ export default function CategoryPage() {
 
   if (!currentCategory) {
     return (
-      <div className="flex flex-col min-h-screen bg-color-white dark:bg-color-gray-950">
+      <div className="flex flex-col bg-color-white dark:bg-color-gray-950">
         <CommonHeader />
         <div className="flex-1 flex items-center justify-center pt-16">
           <div className="text-center">
@@ -134,7 +134,7 @@ export default function CategoryPage() {
 
         <main className="flex-1">
           {/* Search and Controls Bar */}
-          <div className="sticky md:top-16 top-14 px-4 md:px-8 z-30 bg-color-white dark:bg-color-gray-950 py-4">
+          <div className="md:sticky pr-20 md:pr-8 md:z-30 z-99 md:top-16 fixed bottom-0 inset-x-0 px-4 md:px-8 bg-color-white dark:bg-color-gray-950 py-4">
               <div className="flex gap-4 items-start">
                 {/* Search Bar */}
                 <div className="relative flex-1 w-full">
@@ -149,7 +149,7 @@ export default function CategoryPage() {
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
                     placeholder={`Search in ${currentCategory.name}...`}
-                    className="w-full pl-10 pr-10 py-2.5 bg-color-gray-100 dark:bg-color-gray-800 rounded-lg border border-color-gray-200 dark:border-color-gray-700 focus:outline-none focus:ring-2 ring-color-primary dark:text-color-white"
+                    className="w-full pl-10 pr-10 md:py-2.5 py-3 bg-color-gray-100 dark:bg-color-gray-800 rounded-full border border-color-gray-200 dark:border-color-gray-700 focus:outline-none focus:ring-2 ring-color-primary dark:text-color-white"
                   />
                   {searchQuery && (
                     <button
@@ -165,7 +165,7 @@ export default function CategoryPage() {
                 <div className="relative">
                   <button
                     onClick={() => setShowControlBar(!showControlBar)}
-                    className={`flex cursor-pointer items-center gap-2 p-2.5 rounded-full bg-color-gray-100 dark:bg-color-gray-800 hover:bg-color-gray-200 dark:hover:bg-color-gray-700 transition-color ${
+                    className={`flex cursor-pointer items-center gap-2 md:p-2.5 p-3.5 rounded-full bg-color-gray-100 dark:bg-color-gray-800 hover:bg-color-gray-200 dark:hover:bg-color-gray-700 transition-color ${
                       showControlBar
                         ? 'bg-color-secondary/10 border-color-secondary'
                         : 'bg-color-white dark:bg-color-gray-800'
@@ -191,7 +191,7 @@ export default function CategoryPage() {
                         className="fixed inset-0 z-10"
                         onClick={() => setShowControlBar(false)}
                       />
-                      <div className="absolute right-0 top-12 bg-color-white dark:bg-color-gray-800 rounded-2xl shadow-2xl border border-color-gray-200 dark:border-color-gray-700 p-5 w-[250px] z-50">
+                      <div className="absolute md:right-0 md:top-12 md:bottom-auto bottom-16 -right-16 bg-color-white dark:bg-color-gray-800 rounded-2xl shadow-2xl border border-color-gray-200 dark:border-color-gray-700 p-5 w-[250px] z-50">
                         <div className="flex items-center justify-between mb-4">
                           <h3 className="text-lg font-semibold text-color-gray-900 dark:text-color-white">
                             Icon Settings

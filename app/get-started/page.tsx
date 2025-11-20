@@ -30,7 +30,7 @@ export default function GetStarted() {
   return (
     <div className="min-h-screen bg-color-white dark:bg-color-gray-950">
       <CommonHeader />
-      <div className="flex flex-1 pt-16">
+      <div className="md:flex flex-1 pt-16">
               <div className="hidden md:block">
                 <Sidebar activeCategory="get-started" />
               </div>
@@ -131,11 +131,11 @@ export default function GetStarted() {
           {/* CSS Icon Font */}
           <div className="mb-8">
             <div className="relative bg-color-gray-900 dark:bg-color-gray-800 rounded-lg p-4">
-              <code className="text-sm text-color-blue-400 font-mono break-all">
-                {'<link rel="stylesheet" href="https://unpkg.com/uniline@latest/dist/uniline.min.css">'}
+              <code className="text-sm text-color-blue-400 font-mono whitespace-nowrap overflow-x-auto block  pr-10 md:pr-0">
+                {'<link rel="stylesheet" href="https://unpkg.com/@unizap/uniline@latest/dist/uniline.min.css">'}
               </code>
               <button
-                onClick={() => copyToClipboard('<link rel="stylesheet" href="https://unpkg.com/uniline@latest/dist/uniline.min.css">', 'cdn-css')}
+                onClick={() => copyToClipboard('<link rel="stylesheet" href="https://unpkg.com/@unizap/uniline@latest/dist/uniline.min.css">', 'cdn-css')}
                 className="absolute top-3 right-3 p-1.5 rounded bg-color-gray-700 hover:bg-color-gray-600 text-color-gray-300 cursor-pointer"
               >
                 {copiedCode === 'cdn-css' ? (
@@ -162,11 +162,11 @@ export default function GetStarted() {
             Use the icon font classes for simple HTML integration
           </p>
 
-          <div className="relative bg-color-gray-900 dark:bg-color-gray-800 rounded-lg p-4 mb-8 overflow-x-auto">
-            <pre className="text-sm font-mono">
+          <div className="relative bg-color-gray-900 dark:bg-color-gray-800 rounded-lg p-4 mb-8">
+            <pre className="text-sm font-mono overflow-x-auto block  pr-10 md:pr-0">
               <code>
                 <span className="text-color-gray-500">{'<!-- Include CSS -->'}</span>{'\n'}
-                <span className="text-color-blue-400">{'<'}</span><span className="text-color-red-400">{'link'}</span> <span className="text-color-yellow-400">{'rel'}</span><span className="text-color-white">{'="stylesheet"'}</span> <span className="text-color-yellow-400">{'href'}</span><span className="text-color-white">{'="https://unpkg.com/uniline@latest/dist/uniline.min.css"'}</span><span className="text-color-blue-400">{'>'}</span>{'\n\n'}
+                <span className="text-color-blue-400">{'<'}</span><span className="text-color-red-400">{'link'}</span> <span className="text-color-yellow-400">{'rel'}</span><span className="text-color-white">{'="stylesheet"'}</span> <span className="text-color-yellow-400">{'href'}</span><span className="text-color-white">{'="https://unpkg.com/@unizap/uniline@latest/dist/uniline.min.css"'}</span><span className="text-color-blue-400">{'>'}</span>{'\n\n'}
                 <span className="text-color-gray-500">{'<!-- Outline icons -->'}</span>{'\n'}
                 <span className="text-color-blue-400">{'<'}</span><span className="text-color-red-400">{'i'}</span> <span className="text-color-yellow-400">{'class'}</span><span className="text-color-white">{'="uni-heart"'}</span> <span className="text-color-yellow-400">{'style'}</span><span className="text-color-white">{'="color: #e74c3c;"'}</span><span className="text-color-blue-400">{'>'}</span><span className="text-color-blue-400">{'</i>'}</span>{'\n'}
                 <span className="text-color-blue-400">{'<'}</span><span className="text-color-red-400">{'i'}</span> <span className="text-color-yellow-400">{'class'}</span><span className="text-color-white">{'="uni-star"'}</span><span className="text-color-blue-400">{'>'}</span><span className="text-color-blue-400">{'</i>'}</span>{'\n'}
@@ -179,8 +179,8 @@ export default function GetStarted() {
             </pre>
             <button
               onClick={() => copyToClipboard(`<!-- Include CSS -->
-<link rel="stylesheet" href="https://unpkg.com/uniline@latest/dist/uniline.min.css">
-
+<link rel="stylesheet" href="https://unpkg.com/@unizap/uniline@latest/dist/uniline.min.css">
+                
 <!-- Outline icons -->
 <i class="uni-heart" style="color: #e74c3c;"></i>
 <i class="uni-star"></i>
@@ -208,8 +208,8 @@ export default function GetStarted() {
             Import and use icons as React components
           </p>
 
-          <div className="relative bg-color-gray-900 dark:bg-color-gray-800 rounded-lg p-4 mb-8 overflow-x-auto">
-            <pre className="text-sm font-mono">
+          <div className="relative bg-color-gray-900 dark:bg-color-gray-800 rounded-lg p-4 mb-8">
+            <pre className="text-sm font-mono overflow-x-auto block  pr-10 md:pr-0">
               <code>
                 <span className="text-color-purple-400">{'import'}</span> <span className="text-color-white">{'{ Heart, Star, Home }'}</span> <span className="text-color-purple-400">{'from'}</span> <span className="text-color-green-400">{"'@unizap/uniline'"}</span><span className="text-color-white">{';\n\n'}</span>
                 <span className="text-color-purple-400">{'function'}</span> <span className="text-color-yellow-400">{'App'}</span><span className="text-color-white">{'() {\n'}</span>
@@ -247,7 +247,7 @@ function App() {
         </div>
 
         {/* Props */}
-        <div className="mb-12">
+        <div className="md:mb-12">
           <h2 className="text-2xl font-bold text-color-gray-900 dark:text-color-white mb-6">
             Props
           </h2>

@@ -5,6 +5,10 @@
   --color-secondary: #7031fe;
   --color-secondary-100: #eae2ff;
 }
+::selection {
+  background-color: var(--color-secondary);
+  color: #fff;
+}
 body, button, input, select, textarea {
   font-family: "Barlow", sans-serif;
 }

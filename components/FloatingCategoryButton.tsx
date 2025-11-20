@@ -15,7 +15,7 @@ export default function FloatingCategoryButton() {
       {/* Floating Button */}
       <button
         onClick={() => setIsOpen(true)}
-        className="md:hidden fixed bottom-4 right-4 z-40 size-12 bg-color-primary hover:bg-color-primary/90 text-color-white rounded-full shadow-lg flex items-center justify-center transition-all cursor-pointer"
+        className="md:hidden fixed bottom-4 right-4 z-100 size-12 bg-color-primary hover:bg-color-primary/90 text-color-white rounded-full shadow-lg flex items-center justify-center transition-all cursor-pointer"
         aria-label="View categories"
       >
         <Icon name="squares-2x2" category="system" size={24} className="text-color-white" />
@@ -26,26 +26,32 @@ export default function FloatingCategoryButton() {
         <>
           {/* Backdrop */}
           <div
-            className="fixed inset-0 bg-color-black/50 z-50 md:hidden"
+            className="fixed inset-0 bg-color-black/50 z-999 md:hidden"
             onClick={() => setIsOpen(false)}
           />
 
           {/* Popup */}
-          <div className="fixed inset-x-4 top-1/2 -translate-y-1/2 bg-color-white dark:bg-color-gray-800 rounded-2xl shadow-2xl z-50 max-h-[80vh] overflow-hidden md:hidden">
+          <div className="fixed inset-x-4 top-1/2 -translate-y-1/2 bg-color-white dark:bg-color-gray-800 rounded-2xl shadow-2xl z-999 max-h-[80vh] overflow-hidden md:hidden">
             {/* Header */}
             <div className="flex items-center justify-between p-4 border-b border-color-gray-200 dark:border-color-gray-700">
               <h2 className="text-lg font-bold text-color-gray-900 dark:text-color-white">
                 Categories
               </h2>
               <button
-                onClick={() => setIsOpen(false)}
-                className="p-2 rounded-lg hover:bg-color-gray-100 dark:hover:bg-color-gray-700 transition-colors cursor-pointer bg-color-transparent"
-                aria-label="Close"
-              >
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M18 6L6 18M6 6l12 12" />
-                </svg>
-              </button>
+           onClick={() => setIsOpen(false)}
+            className="text-color-gray-400  cursor-pointer rounded-full p-1 hover:text-color-gray-600 dark:hover:text-color-gray-200 transition-color"
+          >
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+            >
+              <path d="M18 6L6 18M6 6l12 12" />
+            </svg>
+          </button>
             </div>
 
             {/* Categories Grid */}

@@ -23,6 +23,7 @@ export default function IconDialog({
 }: IconDialogProps) {
   const [copied, setCopied] = useState(false);
   const [codeCopied, setCodeCopied] = useState(false);
+  const [nameCopied, setNameCopied] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
 
   // Local settings that don't affect the parent component
@@ -240,7 +241,7 @@ export default function IconDialog({
   };
   return (
     <div
-      className={`fixed inset-0 bg-color-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4 transition-opacity duration-200 ${
+      className={`fixed inset-0 bg-color-black/50 backdrop-blur-sm z-999 flex items-center justify-center p-4 transition-opacity duration-200 ${
         isOpen ? 'opacity-100' : 'opacity-0'
       }`}
       onClick={handleClose}
@@ -255,17 +256,17 @@ export default function IconDialog({
         <div className="flex items-center justify-between md:p-6 p-4 border-b border-color-gray-200 dark:border-color-gray-700">
           <div className="flex items-center gap-3">
             <h3 className="text-lg md:text-2xl font-bold text-color-gray-900 dark:text-color-white">
-              {icon.name}
+              uni-{icon.name}
             </h3>
             <button
               onClick={async () => {
                 try {
                   if (navigator.clipboard && navigator.clipboard.writeText) {
-                    await navigator.clipboard.writeText(icon.name);
+                    await navigator.clipboard.writeText(`uni-${icon.name}`);
                   } else {
                     // Fallback for browsers without clipboard API
                     const textArea = document.createElement('textarea');
-                    textArea.value = icon.name;
+                    textArea.value = `uni-${icon.name}`;
                     textArea.style.position = 'fixed';
                     textArea.style.left = '-999999px';
                     document.body.appendChild(textArea);
@@ -273,6 +274,8 @@ export default function IconDialog({
                     document.execCommand('copy');
                     document.body.removeChild(textArea);
                   }
+                  setNameCopied(true);
+                  setTimeout(() => setNameCopied(false), 2000);
                 } catch (err) {
                   console.error('Failed to copy icon name:', err);
                 }
@@ -280,18 +283,32 @@ export default function IconDialog({
               className="text-color-gray-400 hover:text-color-gray-600 bg-color-transparent cursor-pointer transition-color"
               title={`Copy to clipboard`}
             >
-              <svg
-                className="size-4"
-                width="18"
-                height="18"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-              >
-                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
-                <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"></path>
-              </svg>
+              {nameCopied ? (
+                <svg
+                  className="size-4"
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                >
+                  <path d="M20 6L9 17l-5-5" />
+                </svg>
+              ) : (
+                <svg
+                  className="size-4"
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                >
+                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                  <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"></path>
+                </svg>
+              )}
             </button>
           </div>
           <button

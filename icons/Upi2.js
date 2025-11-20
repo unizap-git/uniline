@@ -2,7 +2,7 @@
 
 var React = require('react');
 
-function EllipsisVertical(props) {
+function Upi2(props) {
   var size = props.size !== undefined ? props.size : 24;
   var strokeWidth = props.strokeWidth !== undefined ? props.strokeWidth : 1.5;
   var color = props.color !== undefined ? props.color : 'currentColor';
@@ -10,7 +10,7 @@ function EllipsisVertical(props) {
   var className = props.className !== undefined ? props.className : '';
   var style = props.style !== undefined ? props.style : {};
 
-  var svgContent = fill ? '<path fill-rule="evenodd" d="M10.5 6a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0Zm0 6a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0Zm0 6a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0Z" clip-rule="evenodd"/>' : '<path d="M12,6.8c-.4,0-.8-.3-.8-.8s.3-.8.8-.8.8.3.8.8-.3.8-.8.8ZM12,12.8c-.4,0-.8-.3-.8-.8s.3-.8.8-.8.8.3.8.8-.3.8-.8.8ZM12,18.8c-.4,0-.8-.3-.8-.8s.3-.8.8-.8.8.3.8.8-.3.8-.8.8Z" stroke-miterlimit="10"/>';
+  var svgContent = fill ? '<g id="g138">     <path id="path140" d="M19.3,12.2l-10.9,10L13.8,1.8l5.4,10.4Z"/>   </g>   <g id="g142">     <path id="path144" d="M15.6,12.2l-10.9,10L10.2,1.8l5.4,10.4Z"/>   </g>' : '<polygon points="15 12.2 10.5 3.6 6 20.4 15 12.2" stroke-miterlimit="10"/>   <polygon points="18 12.2 13.5 3.6 9 20.4 18 12.2" stroke-miterlimit="10"/>';
 
   return React.createElement('svg', {
     xmlns: 'http://www.w3.org/2000/svg',
@@ -28,4 +28,4 @@ function EllipsisVertical(props) {
   });
 }
 
-module.exports = EllipsisVertical;
+module.exports = Upi2;
