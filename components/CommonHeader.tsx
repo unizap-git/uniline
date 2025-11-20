@@ -27,7 +27,7 @@ export default function CommonHeader() {
   const currentThemeOption = themeOptions.find(opt => opt.value === theme) || themeOptions[0];
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-color-white/80 dark:bg-color-gray-950/80 backdrop-blur-lg border-b border-color-gray-200 dark:border-color-gray-800">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-color-white dark:bg-color-gray-950 border-b border-color-gray-200 dark:border-color-gray-800">
       <div className="mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between md:h-16 h-14">
           {/* Logo */}

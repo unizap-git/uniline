@@ -111,7 +111,7 @@ export default function AllIcons() {
 
         <main className="flex-1">
           {/* Search and Controls Bar */}
-          <div className="md:sticky z-99 md:top-16 fixed bottom-0 inset-x-0 px-4 md:px-8 bg-color-white dark:bg-color-gray-950 py-4">
+          <div className="md:sticky z-99 md:z-30 md:top-16 fixed bottom-0 inset-x-0 px-4 md:px-8 bg-color-white dark:bg-color-gray-950 py-4">
               <div className="flex gap-4 items-start">
                 {/* Search Bar */}
                 <div className="relative flex-1 w-full pr-16 md:pr-0">
