@@ -1,6 +1,114 @@
 const fs = require('fs');
 const path = require('path');
 
+// Enhanced keyword mappings for better search
+const keywordMap = {
+  // Common synonyms
+  'home': ['house', 'main', 'dashboard', 'start'],
+  'search': ['find', 'magnify', 'lookup', 'zoom'],
+  'user': ['person', 'profile', 'account', 'avatar'],
+  'settings': ['config', 'preferences', 'options', 'gear', 'cog'],
+  'cog': ['config', 'preferences', 'options', 'gear', 'cog','settings'],
+  'menu': ['hamburger', 'navigation', 'nav', 'bars'],
+  'close': ['exit', 'cancel', 'remove', 'delete', 'x'],
+  'delete': ['trash', 'bin', 'remove', 'discard'],
+  'edit': ['pencil', 'write', 'modify', 'change'],
+  'check': ['tick', 'confirm', 'success', 'done', 'complete'],
+  'add': ['plus', 'new', 'create', 'insert'],
+  'remove': ['minus', 'subtract', 'delete'],
+  'heart': ['like', 'favorite', 'love', 'bookmark'],
+  'star': ['favorite', 'rate', 'rating', 'bookmark'],
+  'arrow': ['direction', 'pointer', 'navigate'],
+  'mail': ['email', 'message', 'envelope', 'letter'],
+  'phone': ['call', 'telephone', 'mobile', 'contact'],
+  'calendar': ['date', 'schedule', 'time', 'event'],
+  'down': ['arrow-down', 'bottom', 'download', 'lower'],
+  'up': ['arrow-up', 'top', 'upload', 'raise'],
+  'left': ['arrow-left', 'previous', 'back','logout','sign out'],
+  'right': ['arrow-right', 'next', 'forward','login', 'sign in'],
+  'pointing': ['shrink', 'minimize', 'contract'],
+  'pointing': ['expand', 'maximize', 'enlarge', 'fullscreen'],
+  'compress': ['shrink', 'minimize', 'contract', 'collapse'],
+  'expand': ['expand', 'maximize', 'enlarge', 'fullscreen'],
+  'clock': ['time', 'timer', 'watch', 'hour'],
+  'download': ['save', 'export', 'get'],
+  'upload': ['import', 'send', 'transfer'],
+  'share': ['send', 'forward', 'export', 'publish'],
+  'lock': ['secure', 'private', 'password', 'protect'],
+  'unlock': ['open', 'access', 'public'],
+  'eye': ['view', 'visible', 'show', 'preview'],
+  'file': ['document', 'paper', 'page'],
+  'folder': ['directory', 'collection', 'storage'],
+  'image': ['picture', 'photo', 'gallery'],
+  'video': ['play', 'movie', 'film', 'media'],
+  'music': ['audio', 'sound', 'song', 'note'],
+  'camera': ['photo', 'picture', 'snapshot'],
+  'refresh': ['reload', 'sync', 'update', 'rotate'],
+  'copy': ['duplicate', 'clone', 'replicate'],
+  'paste': ['insert', 'add'],
+  'cut': ['scissors', 'remove'],
+  'save': ['disk', 'floppy', 'store'],
+  'print': ['printer', 'output'],
+  'warning': ['alert', 'caution', 'danger', 'error'],
+  'info': ['information', 'help', 'about'],
+  'question': ['help', 'faq', 'support'],
+  'notification': ['bell', 'alert', 'reminder'],
+  'message': ['chat', 'comment', 'talk', 'conversation'],
+  'send': ['paper-plane', 'submit', 'share'],
+  'location': ['pin', 'map', 'place', 'marker'],
+  'sun': ['light', 'day', 'brightness', 'weather'],
+  'moon': ['night', 'dark', 'sleep'],
+  'cloud': ['weather', 'storage', 'backup', 'internet', 'upload', 'download'],
+  'wallet': ['money', 'payment', 'finance', 'cash'],
+  'shopping': ['cart', 'bag', 'store', 'buy'],
+  'gift': ['present', 'reward', 'bonus'],
+  'bookmark': ['save', 'favorite', 'mark'],
+  'tag': ['label', 'category', 'classify'],
+  'filter': ['sort', 'organize', 'refine'],
+  'link': ['chain', 'url', 'connect', 'hyperlink'],
+  'attachment': ['clip', 'attach', 'file'],
+  'code': ['programming', 'developer', 'script'],
+  'terminal': ['console', 'command', 'shell'],
+  'database': ['storage', 'data', 'sql'],
+  'server': ['cloud', 'hosting', 'backend'],
+  'wifi': ['wireless', 'internet', 'network'],
+  'bluetooth': ['wireless', 'connect'],
+  'battery': ['power', 'charge', 'energy'],
+  'volume': ['sound', 'audio', 'speaker'],
+  'mic': ['microphone', 'voice', 'record'],
+  'monitor': ['screen', 'display', 'desktop'],
+  'mobile': ['phone', 'smartphone', 'device'],
+  'tablet': ['ipad', 'device', 'touch'],
+  'laptop': ['computer', 'notebook', 'pc'],
+  'keyboard': ['type', 'input'],
+  'mouse': ['pointer', 'cursor', 'click'],
+  'briefcase': ['work', 'job', 'business'],
+  'building': ['office', 'company', 'corporate'],
+  'chart': ['graph', 'statistics', 'data'],
+  'percent': ['percentage', 'ratio', 'proportion', 'offer', 'discount'],
+  'chat': ['message', 'conversation', 'talk', 'comment'],
+  'receipt': ['invoice', 'bill', 'payment', 'purchase'],
+  'mark': ['close', 'cancel', 'delete', 'remove'],
+  'adjustments': ['settings', 'config', 'preferences', 'options'],
+  'zoom':['magnify', 'enlarge', 'scale', 'search'],
+
+};
+
+// Function to generate enhanced keywords for an icon
+function generateKeywords(iconName, categoryName) {
+  const nameParts = iconName.split('-');
+  const keywords = new Set([...nameParts, categoryName.toLowerCase()]);
+
+  // Add mapped keywords for each part of the icon name
+  nameParts.forEach(part => {
+    if (keywordMap[part]) {
+      keywordMap[part].forEach(keyword => keywords.add(keyword));
+    }
+  });
+
+  return Array.from(keywords);
+}
+
 // Read all SVG files from public/icons/outline and public/icons/solid
 const outlineDir = path.join(__dirname, '../public/icons/outline');
 const solidDir = path.join(__dirname, '../public/icons/solid');
@@ -94,7 +202,7 @@ ${Object.entries(categorized)
     id: "${category}",
     name: "${categoryName}",
     icons: [
-${icons.map(icon => `      { name: "${icon}", componentName: "${icon}", category: "${category}", keywords: ${JSON.stringify(icon.split('-'))} }`).join(',\n')}
+${icons.map(icon => `      { name: "${icon}", componentName: "${icon}", category: "${category}", keywords: ${JSON.stringify(generateKeywords(icon, categoryName))} }`).join(',\n')}
     ]
   }`;
   })
