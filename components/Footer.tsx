@@ -11,6 +11,12 @@ export default function Footer() {
             <span className='text-sm font-medium text-color-gray-600 dark:text-color-gray-400'>Made with love by</span>
             <Link className='text-sm text-color-gray-500 dark:text-color-gray-400 hover:text-color-blue-500 dark:hover:text-color-blue-400 no-underline transition-color' href="https://unizap.ai" target='_blank'>Unizap Team</Link>
           </p>
+          <div className="flex flex-col items-center gap-2">
+            <p className="text-sm font-medium text-color-gray-600 dark:text-color-gray-400">Missing an icon?</p>
+            <a href="https://github.com/unizap-git/uniline/issues/new?title=Icon%20Request:%20&labels=icon-request&body=**Icon%20Name:**%0A%0A**Description:**%0A%0A**Use%20Case:**%0A%0A**Similar%20Icons:**%0A" target="_blank" rel="noopener noreferrer" className="text-sm text-color-gray-500 dark:text-color-gray-400 hover:text-color-blue-500 dark:hover:text-color-blue-400 no-underline transition-color">
+              Request an Icon
+            </a>
+          </div>
           <div className="flex flex-col items-center md:items-end gap-2">
             <p className="text-sm font-medium text-color-gray-600 dark:text-color-gray-400">Other open source packages</p>
             <div className="flex items-center gap-4">

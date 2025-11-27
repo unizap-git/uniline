@@ -4,7 +4,7 @@ A comprehensive icon library with 660+ beautifully crafted icons. Available as R
 
 ## Features
 
-- **660+ Icons** across multiple categories
+- **2700+ Icons** across multiple categories
 - **Line & Fill Variants** - Toggle between outline and filled versions
 - **Tree-shakeable** - Import only the icons you need
 - **TypeScript Support** - Full type definitions with autocomplete
@@ -44,14 +44,14 @@ The simplest way to use Uniline - just include the CSS and use `<i>` tags:
 <link rel="stylesheet" href="https://unpkg.com/@unizap/uniline@latest/dist/uniline.min.css">
 
 <!-- Outline icons -->
-<i class="uni-heart" style="color: #e74c3c;"></i>
-<i class="uni-star"></i>
+<i class="uni-circle-five-line" style="color: #e74c3c;"></i>
 <i class="uni-home"></i>
+<i class="uni-bell"></i>
 
 <!-- Filled icons -->
-<i class="uni-heart-fill" style="color: #e74c3c;"></i>
-<i class="uni-star-fill"></i>
+<i class="uni-circle-five-line-fill" style="color: #e74c3c;"></i>
 <i class="uni-home-fill"></i>
+<i class="uni-bell-fill"></i>
 ```
 
 ### React Components
