@@ -335,6 +335,30 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Request Icon Section */}
+      <section className="md:py-20 py-10 bg-color-gray-50 dark:bg-color-gray-900">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <div className="flex justify-center mb-6">
+            <Icon name="help" category="basic" size={48} color="currentColor" className="text-color-primary" />
+          </div>
+          <h2 className="text-3xl font-bold text-color-gray-900 dark:text-color-white mb-4">
+            Missing an icon?
+          </h2>
+          <p className="text-color-gray-600 dark:text-color-gray-400 mb-8">
+            Can&apos;t find the icon you need? Let us know and we&apos;ll add it to the library.
+          </p>
+          <a
+            href="https://github.com/unizap-git/uniline/issues/new?title=Icon%20Request:%20&labels=icon-request&body=**Icon%20Name:**%0A%0A**Description:**%0A%0A**Similar%20Icons:**%0A"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 px-6 py-3 bg-color-primary text-color-white font-semibold rounded-lg hover:bg-color-primary/90 transition-colors no-underline"
+          >
+            <Icon name="github-one" fill category="brands" size={20} color="currentColor" />
+            Request an Icon
+          </a>
+        </div>
+      </section>
+
       <Footer />
     </div>
   );

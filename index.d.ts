@@ -2470,6 +2470,8 @@ export { default as Projector } from './icons/Projector';
 export { default as QrCode } from './icons/QrCode';
 export { default as RadioOne } from './icons/RadioOne';
 export { default as Radio } from './icons/Radio';
+export { default as RamTwo } from './icons/RamTwo';
+export { default as Ram } from './icons/Ram';
 export { default as Receiver } from './icons/Receiver';
 export { default as RecordPlayer } from './icons/RecordPlayer';
 export { default as RemoteControlOne } from './icons/RemoteControlOne';

@@ -42,7 +42,8 @@
     "lint": "next lint",
     "generate-components": "node scripts/generateIconComponents.js",
     "generate-icons": "node scripts/generateIconList.js",
-    "build:font": "node scripts/generateIconFontV2.mjs"
+    "build:font": "node scripts/generateIconFontV2.mjs",
+    "generate-json": "node scripts/generateIconsJSON.js"
   },
   "keywords": [
     "icons",

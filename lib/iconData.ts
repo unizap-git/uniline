@@ -2684,6 +2684,8 @@ export const iconCategories: IconCategory[] = [
       { name: "qr-code", componentName: "qr-code", category: "system", keywords: ["qr","code","system","programming","developer","script"] },
       { name: "radio-one", componentName: "radio-one", category: "system", keywords: ["radio","one","system"] },
       { name: "radio", componentName: "radio", category: "system", keywords: ["radio","system"] },
+      { name: "ram-two", componentName: "ram-two", category: "system", keywords: ["ram","two","system"] },
+      { name: "ram", componentName: "ram", category: "system", keywords: ["ram","system"] },
       { name: "receiver", componentName: "receiver", category: "system", keywords: ["receiver","system"] },
       { name: "record-player", componentName: "record-player", category: "system", keywords: ["record","player","system"] },
       { name: "remote-control-one", componentName: "remote-control-one", category: "system", keywords: ["remote","control","one","system"] },

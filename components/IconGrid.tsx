@@ -208,9 +208,34 @@ export default function IconGrid({
     };
   }, [categories, onCategoryVisible]);
 
+  // Check if there are no icons to display
+  const totalIcons = categories.reduce((acc, cat) => acc + cat.icons.length, 0);
+
   return (
     <div className="flex-1">
       <div className="md:px-8 md:pb-0 md:pt-8 px-4 pt-4 pb-16">
+        {/* No Results Found */}
+        {totalIcons === 0 && (
+          <div className="flex flex-col items-center justify-center py-20 text-center">
+            <Icon name="search" category="basic" size={48} color="currentColor" className="text-color-gray-400 mb-4" />
+            <h3 className="text-xl font-semibold text-color-gray-900 dark:text-color-white mb-2">
+              No icons found
+            </h3>
+            <p className="text-color-gray-600 dark:text-color-gray-400 mb-6 max-w-md">
+              We couldn&apos;t find any icons matching your search. Try a different keyword or request a new icon.
+            </p>
+            <a
+              href="https://github.com/unizap-git/uniline/issues/new?title=Icon%20Request:%20&labels=icon-request&body=**Icon%20Name:**%0A%0A**Description:**%0A%0A**Similar%20Icons:**%0A"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-color-primary text-color-white font-semibold rounded-lg hover:bg-color-primary/90 transition-colors no-underline"
+            >
+              <Icon name="github-one" fill category="brands" size={20} color="currentColor" />
+              Request an Icon
+            </a>
+          </div>
+        )}
+
         {/* Icon Categories */}
         {categories.map((category) => (
           <section
