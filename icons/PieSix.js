@@ -1,0 +1,31 @@
+'use strict';
+
+var React = require('react');
+
+function PieSix(props) {
+  var size = props.size !== undefined ? props.size : 24;
+  var strokeWidth = props.strokeWidth !== undefined ? props.strokeWidth : 1.5;
+  var color = props.color !== undefined ? props.color : 'currentColor';
+  var fill = props.fill !== undefined ? props.fill : false;
+  var className = props.className !== undefined ? props.className : '';
+  var style = props.style !== undefined ? props.style : {};
+
+  var svgContent = fill ? '<circle cx="24" cy="24" r="20"/><path d="M24 4C27.9556 4 31.8224 5.17298 35.1114 7.37061C38.4004 9.56824 40.9638 12.6918 42.4776 16.3463C43.9913 20.0009 44.3874 24.0222 43.6157 27.9018C42.844 31.7814 40.9392 35.3451 38.1421 38.1421C35.3451 40.9392 31.7814 42.844 27.9018 43.6157C24.0222 44.3874 20.0009 43.9913 16.3463 42.4776C12.6918 40.9638 9.56824 38.4004 7.37061 35.1114C5.17298 31.8224 4 27.9556 4 24H24V4Z"/>' : '<circle cx="24" cy="24" r="20"/><path d="M24 4C27.9556 4 31.8224 5.17298 35.1114 7.37061C38.4004 9.56824 40.9638 12.6918 42.4776 16.3463C43.9913 20.0009 44.3874 24.0222 43.6157 27.9018C42.844 31.7814 40.9392 35.3451 38.1421 38.1421C35.3451 40.9392 31.7814 42.844 27.9018 43.6157C24.0222 44.3874 20.0009 43.9913 16.3463 42.4776C12.6918 40.9638 9.56824 38.4004 7.37061 35.1114C5.17298 31.8224 4 27.9556 4 24H24V4Z"/>';
+
+  return React.createElement('svg', {
+    xmlns: 'http://www.w3.org/2000/svg',
+    width: size,
+    height: size,
+    viewBox: '0 0 48 48',
+    fill: fill ? color : 'none',
+    stroke: fill ? 'none' : color,
+    strokeWidth: fill ? 0 : strokeWidth,
+    strokeLinecap: 'round',
+    strokeLinejoin: 'round',
+    className: className,
+    style: style,
+    dangerouslySetInnerHTML: { __html: svgContent }
+  });
+}
+
+module.exports = PieSix;

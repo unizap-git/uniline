@@ -10,13 +10,13 @@ function Undo(props) {
   var className = props.className !== undefined ? props.className : '';
   var style = props.style !== undefined ? props.style : {};
 
-  var svgContent = fill ? '<path d="M16,20H7c-.6,0-1-.4-1-1s.4-1,1-1h9c2.2,0,4-1.8,4-4s-1.8-4-4-4H5.4l2.3,2.3c.4.4.4,1,0,1.4s-1,.4-1.4,0l-4-4c0,0-.2-.2-.2-.3,0-.1,0-.2,0-.4h0c0-.1,0-.3,0-.4,0-.1.1-.2.2-.3l4-4c.4-.4,1-.4,1.4,0s.4,1,0,1.4l-2.3,2.3h10.6c3.3,0,6,2.7,6,6s-2.7,6-6,6Z"/>' : '<path d="M3 9h13a5 5 0 0 1 0 10H7M3 9l4-4M3 9l4 4"/>';
+  var svgContent = fill ? '<path d="M11.2721 36.7279C14.5294 39.9853 19.0294 42 24 42C33.9411 42 42 33.9411 42 24C42 14.0589 33.9411 6 24 6C19.0294 6 14.5294 8.01472 11.2721 11.2721C9.61407 12.9301 6 17 6 17"/><path d="M6 9V17H14"/>' : '<path d="M11.2721 36.7279C14.5294 39.9853 19.0294 42 24 42C33.9411 42 42 33.9411 42 24C42 14.0589 33.9411 6 24 6C19.0294 6 14.5294 8.01472 11.2721 11.2721C9.61407 12.9301 6 17 6 17"/><path d="M6 9V17H14"/>';
 
   return React.createElement('svg', {
     xmlns: 'http://www.w3.org/2000/svg',
     width: size,
     height: size,
-    viewBox: '0 0 24 24',
+    viewBox: '0 0 48 48',
     fill: fill ? color : 'none',
     stroke: fill ? 'none' : color,
     strokeWidth: fill ? 0 : strokeWidth,

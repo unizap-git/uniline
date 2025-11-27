@@ -1,3 +1,3 @@
 import { IconComponent } from '../types';
-declare const PaperClip: IconComponent;
-export default PaperClip;
+declare const Paperclip: IconComponent;
+export default Paperclip;

@@ -10,13 +10,13 @@ function Hourglass(props) {
   var className = props.className !== undefined ? props.className : '';
   var style = props.style !== undefined ? props.style : {};
 
-  var svgContent = fill ? '<path fill-rule="evenodd" d="M5.5 3a1 1 0 0 0 0 2H7v2.333a3 3 0 0 0 .556 1.74l1.57 2.814A1.1 1.1 0 0 0 9.2 12a.998.998 0 0 0-.073.113l-1.57 2.814A3 3 0 0 0 7 16.667V19H5.5a1 1 0 1 0 0 2h13a1 1 0 1 0 0-2H17v-2.333a3 3 0 0 0-.56-1.745l-1.616-2.82a1 1 0 0 0-.067-.102 1 1 0 0 0 .067-.103l1.616-2.819A3 3 0 0 0 17 7.333V5h1.5a1 1 0 1 0 0-2h-13Z" clip-rule="evenodd"/>' : '<path d="M18.5 4h-13m13 16h-13M8 20v-3.333a2 2 0 0 1 .4-1.2L10 12.6a1 1 0 0 0 0-1.2L8.4 8.533a2 2 0 0 1-.4-1.2V4h8v3.333a2 2 0 0 1-.4 1.2L13.957 11.4a1 1 0 0 0 0 1.2l1.643 2.867a2 2 0 0 1 .4 1.2V20H8Z"/>';
+  var svgContent = fill ? '<path d="M8 4H40"/><path d="M8 44H40"/><path d="M12 4V16L21 26"/><path d="M36 44V29.5L27 21"/><path d="M12 44V30L18.5 23.5"/><path d="M36 4V16L29.5 23.5"/><path d="M18 33H19"/><path d="M29.1465 32.6465L29.8536 33.3536"/><path d="M24 38H25"/>' : '<path d="M8 4H40"/><path d="M8 44H40"/><path d="M12 4V16L21 26"/><path d="M36 44V29.5L27 21"/><path d="M12 44V30L18.5 23.5"/><path d="M36 4V16L29.5 23.5"/><path d="M18 33H19"/><path d="M29.1465 32.6465L29.8536 33.3536"/><path d="M24 38H25"/>';
 
   return React.createElement('svg', {
     xmlns: 'http://www.w3.org/2000/svg',
     width: size,
     height: size,
-    viewBox: '0 0 24 24',
+    viewBox: '0 0 48 48',
     fill: fill ? color : 'none',
     stroke: fill ? 'none' : color,
     strokeWidth: fill ? 0 : strokeWidth,

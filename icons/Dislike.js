@@ -1,0 +1,31 @@
+'use strict';
+
+var React = require('react');
+
+function Dislike(props) {
+  var size = props.size !== undefined ? props.size : 24;
+  var strokeWidth = props.strokeWidth !== undefined ? props.strokeWidth : 1.5;
+  var color = props.color !== undefined ? props.color : 'currentColor';
+  var fill = props.fill !== undefined ? props.fill : false;
+  var className = props.className !== undefined ? props.className : '';
+  var style = props.style !== undefined ? props.style : {};
+
+  var svgContent = fill ? '<path d="M24 31L21 26L28 20L19 15L20 9.19942C18.4999 8.43256 16.8004 8 15 8C8.92487 8 4 12.9249 4 19C4 30 17 40 24 42C31 40 44 30 44 19C44 12.9249 39.0751 8 33 8C31.1996 8 29.5001 8.43256 28 9.19942"/>' : '<path d="M24 31L21 26L28 20L19 15L20 9.19942C18.4999 8.43256 16.8004 8 15 8C8.92487 8 4 12.9249 4 19C4 30 17 40 24 42C31 40 44 30 44 19C44 12.9249 39.0751 8 33 8C31.1996 8 29.5001 8.43256 28 9.19942"/>';
+
+  return React.createElement('svg', {
+    xmlns: 'http://www.w3.org/2000/svg',
+    width: size,
+    height: size,
+    viewBox: '0 0 48 48',
+    fill: fill ? color : 'none',
+    stroke: fill ? 'none' : color,
+    strokeWidth: fill ? 0 : strokeWidth,
+    strokeLinecap: 'round',
+    strokeLinejoin: 'round',
+    className: className,
+    style: style,
+    dangerouslySetInnerHTML: { __html: svgContent }
+  });
+}
+
+module.exports = Dislike;

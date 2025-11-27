@@ -10,13 +10,13 @@ function FilePpt(props) {
   var className = props.className !== undefined ? props.className : '';
   var style = props.style !== undefined ? props.style : {};
 
-  var svgContent = fill ? '<path fill-rule="evenodd" d="M9 2.221V7H4.221a2 2 0 0 1 .365-.5L8.5 2.586A2 2 0 0 1 9 2.22ZM11 2v5a2 2 0 0 1-2 2H4a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2 2 2 0 0 0 2 2h12a2 2 0 0 0 2-2 2 2 0 0 0 2-2v-7a2 2 0 0 0-2-2V4a2 2 0 0 0-2-2h-7Zm-6 9a1 1 0 0 0-1 1v5a1 1 0 1 0 2 0v-1h.5a2.5 2.5 0 0 0 0-5H5Zm1.5 3H6v-1h.5a.5.5 0 0 1 0 1Zm4.5-3a1 1 0 0 0-1 1v5a1 1 0 1 0 2 0v-1h.5a2.5 2.5 0 0 0 0-5H11Zm1.5 3H12v-1h.5a.5.5 0 0 1 0 1Zm4.5-3a1 1 0 1 0 0 2v4a1 1 0 1 0 2 0v-4a1 1 0 1 0 0-2h-2Z" clip-rule="evenodd"/>' : '<path d="M5 17v-5h1.5a1.5 1.5 0 1 1 0 3H5m6 2v-5h1.5a1.5 1.5 0 1 1 0 3H11m7-3v5m-1-5h2M5 10V7.914a1 1 0 0 1 .293-.707l3.914-3.914A1 1 0 0 1 9.914 3H18a1 1 0 0 1 1 1v6M5 19v1a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-1M10 3v4a1 1 0 0 1-1 1H5"/>';
+  var svgContent = fill ? '<path d="M25 41H38V34"/><path d="M25 7H38V14"/><path d="M25 34.2432V44L10 38.6187V34"/><path d="M25 13.973V4L10 9.38125V13.973"/><rect x="4" y="14" width="40" height="20" rx="2"/><path d="M10 19V29"/><path d="M21 19V29"/><path d="M35 20V28"/><path d="M32 20H35H38"/><path d="M10 19H13C14.6569 19 16 20.3431 16 22V22C16 23.6569 14.6569 25 13 25H10"/><path d="M21 19H24C25.6569 19 27 20.3431 27 22V22C27 23.6569 25.6569 25 24 25H21"/>' : '<path d="M25 41H38V34"/><path d="M25 7H38V14"/><path d="M25 34.2432V44L10 38.6187V34"/><path d="M25 13.973V4L10 9.38125V13.973"/><rect x="4" y="14" width="40" height="20" rx="2"/><path d="M10 19V29"/><path d="M21 19V29"/><path d="M35 20V28"/><path d="M32 20H35H38"/><path d="M10 19H13C14.6569 19 16 20.3431 16 22V22C16 23.6569 14.6569 25 13 25H10"/><path d="M21 19H24C25.6569 19 27 20.3431 27 22V22C27 23.6569 25.6569 25 24 25H21"/>';
 
   return React.createElement('svg', {
     xmlns: 'http://www.w3.org/2000/svg',
     width: size,
     height: size,
-    viewBox: '0 0 24 24',
+    viewBox: '0 0 48 48',
     fill: fill ? color : 'none',
     stroke: fill ? 'none' : color,
     strokeWidth: fill ? 0 : strokeWidth,

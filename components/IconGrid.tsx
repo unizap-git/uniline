@@ -3,6 +3,15 @@
 import { IconCategory, IconItem } from "@/lib/iconData";
 import Icon from "@/components/Icon";
 import { useState, useEffect } from "react";
+import iconsDataRaw from '@/lib/icons.json';
+
+// Ensure iconsData is always an array
+const iconsData: any[] = Array.isArray(iconsDataRaw) ? iconsDataRaw : [];
+
+// Create a map for faster lookups
+const iconsMap = new Map(
+  iconsData.map((icon: any) => [icon.name, icon])
+);
 
 
 interface IconSettings {
@@ -39,20 +48,83 @@ export default function IconGrid({
   const copySVGToClipboard = async (icon: IconItem, e: React.MouseEvent) => {
     e.stopPropagation();
 
-    const folderName = iconSettings.variant === 'fill' ? 'solid' : 'outline';
-    const iconSrc = `/icons/${folderName}/${icon.category}/${icon.name}.svg`;
-
     try {
-      const response = await fetch(iconSrc);
-      const svgText = await response.text();
+      // Get icon data from the map
+      const iconData = iconsMap.get(icon.name);
+      if (!iconData) {
+        console.error('Icon not found:', icon.name);
+        return;
+      }
 
-      // Check if clipboard API is available
-      if (navigator.clipboard && navigator.clipboard.writeText) {
-        await navigator.clipboard.writeText(svgText);
+      // Get the appropriate SVG (outline or solid)
+      const isFill = iconSettings.variant === 'fill';
+      const svgContent = isFill ? iconData.solid : iconData.outline;
+      if (!svgContent) {
+        console.error('SVG content not found for:', icon.name);
+        return;
+      }
+
+      // Parse and modify SVG with current settings
+      const parser = new DOMParser();
+      const svgDoc = parser.parseFromString(svgContent, 'image/svg+xml');
+      const svgElement = svgDoc.querySelector('svg');
+
+      if (!svgElement) {
+        console.error('Failed to parse SVG');
+        return;
+      }
+
+      // Apply current settings
+      svgElement.setAttribute('width', iconSettings.size.toString());
+      svgElement.setAttribute('height', iconSettings.size.toString());
+
+      if (isFill) {
+        // Fill mode logic
+        svgElement.querySelectorAll('path, circle, rect, polygon, ellipse, line, polyline').forEach(el => {
+          const originalFill = el.getAttribute('fill');
+          const originalStroke = el.getAttribute('stroke');
+
+          if (originalFill && originalFill !== 'none') {
+            el.setAttribute('fill', iconSettings.color);
+          }
+
+          if (originalStroke && originalStroke.toLowerCase() !== '#fff' && originalStroke.toLowerCase() !== '#ffffff' && originalStroke.toLowerCase() !== 'white') {
+            el.setAttribute('stroke', iconSettings.color);
+          }
+        });
       } else {
-        // Fallback for browsers without clipboard API
+        // Stroke mode logic
+        svgElement.setAttribute('stroke', iconSettings.color);
+        svgElement.setAttribute('stroke-width', iconSettings.strokeWidth.toString());
+        svgElement.querySelectorAll('path, circle, rect, polygon, ellipse, line, polyline').forEach(el => {
+          const originalStroke = el.getAttribute('stroke');
+
+          if (originalStroke) {
+            const strokeLower = originalStroke.toLowerCase();
+            if (strokeLower === '#fff' || strokeLower === '#ffffff' || strokeLower === 'white') {
+              el.removeAttribute('fill');
+              el.removeAttribute('stroke');
+              el.removeAttribute('stroke-width');
+              return;
+            }
+          }
+
+          el.removeAttribute('fill');
+          el.setAttribute('fill', 'none');
+          el.setAttribute('stroke', iconSettings.color);
+          el.setAttribute('stroke-width', iconSettings.strokeWidth.toString());
+        });
+      }
+
+      // Serialize the modified SVG
+      const modifiedSvgText = new XMLSerializer().serializeToString(svgElement);
+
+      // Copy to clipboard
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        await navigator.clipboard.writeText(modifiedSvgText);
+      } else {
         const textArea = document.createElement('textarea');
-        textArea.value = svgText;
+        textArea.value = modifiedSvgText;
         textArea.style.position = 'fixed';
         textArea.style.left = '-999999px';
         document.body.appendChild(textArea);
@@ -155,7 +227,6 @@ export default function IconGrid({
               {category.icons.map((icon) => (
                 <div
                   key={icon.name}
-                 
                   className="group"
                 >
                   {/* Icon Display */}
@@ -205,8 +276,6 @@ export default function IconGrid({
                   <span className="select-all mt-2 block text-xs text-color-gray-600 dark:text-color-gray-300 text-center line-clamp-2">
                       uni-{icon.name}
                   </span>
-
-                 
                 </div>
               ))}
             </div>

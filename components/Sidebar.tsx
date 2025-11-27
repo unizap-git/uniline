@@ -40,7 +40,7 @@ export default function Sidebar({
       <aside
         className={`
         w-64 bg-color-gray-50 dark:bg-color-gray-900 border-r border-color-gray-200 dark:border-color-gray-800 overflow-y-auto dark:scrollbar-[color-gray-600_color-gray-900]
-        md:sticky md:top-[71px] md:h-[calc(100vh-71px)]
+        md:sticky md:top-[65px] md:h-[calc(100vh-65px)]
         fixed top-0 left-0 h-full z-50 transition-transform duration-300
         ${isOpen ? "translate-x-0" : "-translate-x-full md:translate-x-0"}
       `}

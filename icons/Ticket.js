@@ -10,13 +10,13 @@ function Ticket(props) {
   var className = props.className !== undefined ? props.className : '';
   var style = props.style !== undefined ? props.style : {};
 
-  var svgContent = fill ? '<path d="M4 5a2 2 0 0 0-2 2v2.5a1 1 0 0 0 1 1 1.5 1.5 0 1 1 0 3 1 1 0 0 0-1 1V17a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2.5a1 1 0 0 0-1-1 1.5 1.5 0 1 1 0-3 1 1 0 0 0 1-1V7a2 2 0 0 0-2-2H4Z"/>' : '<path d="M18.5 12A2.5 2.5 0 0 1 21 9.5V7a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v2.5a2.5 2.5 0 0 1 0 5V17a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1v-2.5a2.5 2.5 0 0 1-2.5-2.5Z"/>';
+  var svgContent = fill ? '<path d="M4.5,8l12.5-5,2,5"/>   <path d="M22,12c.6,0,1-.4,1-1v-3c0-.6-.4-1-1-1H2c-.6,0-1,.4-1,1v3c0,.6.4,1,1,1,.9,0,2,.5,2,2s-1.1,2-2,2-1,.4-1,1v3c0,.6.4,1,1,1h20c.6,0,1-.4,1-1v-3c0-.6-.4-1-1-1-.9,0-2-1-2-2.2s1.2-1.8,2-1.8ZM8.5,11.7h3c.6,0,1,.4,1,1s-.4,1-1,1h-3c-.6,0-1-.4-1-1s.4-1,1-1ZM15.5,16.7h-7c-.6,0-1-.4-1-1s.4-1,1-1h7c.6,0,1,.4,1,1s-.4,1-1,1Z"/>' : '<path d="M9.00013 16.0001L34 6.00008L38.0004 16.0001"/><path d="M4 16H44V22C41 22 38 24 38 27.5C38 31 41 34 44 34V40H4V34C7.00016 34 10 32 10 28C10 24 7 22 4 22V16Z"/><path d="M17 25.3848H23"/><path d="M17 31.3848H31"/>';
 
   return React.createElement('svg', {
     xmlns: 'http://www.w3.org/2000/svg',
     width: size,
     height: size,
-    viewBox: '0 0 24 24',
+    viewBox: '0 0 48 48',
     fill: fill ? color : 'none',
     stroke: fill ? 'none' : color,
     strokeWidth: fill ? 0 : strokeWidth,

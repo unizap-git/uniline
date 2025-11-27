@@ -1,3 +1,3 @@
 import { IconComponent } from '../types';
-declare const VideoCamera: IconComponent;
-export default VideoCamera;
+declare const Videocamera: IconComponent;
+export default Videocamera;

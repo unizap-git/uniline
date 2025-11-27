@@ -1,0 +1,31 @@
+'use strict';
+
+var React = require('react');
+
+function Lotion(props) {
+  var size = props.size !== undefined ? props.size : 24;
+  var strokeWidth = props.strokeWidth !== undefined ? props.strokeWidth : 1.5;
+  var color = props.color !== undefined ? props.color : 'currentColor';
+  var fill = props.fill !== undefined ? props.fill : false;
+  var className = props.className !== undefined ? props.className : '';
+  var style = props.style !== undefined ? props.style : {};
+
+  var svgContent = fill ? '<rect x="17" y="37" width="14" height="7"/><path d="M36 4H12C12 4 12 12 13 21C14 30 17 37 17 37H31C31 37 34 30 35 21C36 12 36 4 36 4Z"/><path d="M20.643 21.8886C22.0743 20.0081 23.1776 17.4103 23.774 16C24.8177 17.4103 27.084 20.9484 27.7997 22.8288C28.6942 25.1793 26.4578 28 23.774 28C21.0903 28 18.8538 24.2391 20.643 21.8886Z"/><path d="M13 10L35 10"/>' : '<rect x="17" y="37" width="14" height="7"/><path d="M36 4H12C12 4 12 12 13 21C14 30 17 37 17 37H31C31 37 34 30 35 21C36 12 36 4 36 4Z"/><path d="M20.643 21.8886C22.0743 20.0081 23.1776 17.4103 23.774 16C24.8177 17.4103 27.084 20.9484 27.7997 22.8288C28.6942 25.1793 26.4578 28 23.774 28C21.0903 28 18.8538 24.2391 20.643 21.8886Z"/><path d="M13 10L35 10"/>';
+
+  return React.createElement('svg', {
+    xmlns: 'http://www.w3.org/2000/svg',
+    width: size,
+    height: size,
+    viewBox: '0 0 48 48',
+    fill: fill ? color : 'none',
+    stroke: fill ? 'none' : color,
+    strokeWidth: fill ? 0 : strokeWidth,
+    strokeLinecap: 'round',
+    strokeLinejoin: 'round',
+    className: className,
+    style: style,
+    dangerouslySetInnerHTML: { __html: svgContent }
+  });
+}
+
+module.exports = Lotion;

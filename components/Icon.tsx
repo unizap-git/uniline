@@ -1,4 +1,8 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
+import iconsDataRaw from '@/lib/icons.json';
+
+// Ensure iconsData is always an array
+const iconsData: any[] = Array.isArray(iconsDataRaw) ? iconsDataRaw : [];
 
 interface IconProps {
   name: string;
@@ -10,6 +14,11 @@ interface IconProps {
   className?: string;
 }
 
+// Create a map for faster lookups
+const iconsMap = new Map(
+  iconsData.map((icon: any) => [icon.name, icon])
+);
+
 export default function Icon({
   name,
   category,
@@ -19,75 +28,74 @@ export default function Icon({
   fill = false,
   className = ''
 }: IconProps) {
-  const [iconExists, setIconExists] = useState(true);
-  const [svgContent, setSvgContent] = useState<string>('');
+  const [isMounted, setIsMounted] = useState(false);
 
+  // Only render on client side to avoid DOMParser SSR issues
   useEffect(() => {
-    const folderName = fill ? 'solid' : 'outline';
-    // If category is provided, use folder structure: /icons/outline/category/name.svg
-    // Otherwise, use flat structure: /icons/outline/name.svg (for backward compatibility)
-    const iconSrc = category
-      ? `/icons/${folderName}/${category}/${name}.svg`
-      : `/icons/${folderName}/${name}.svg`;
+    setIsMounted(true);
+  }, []);
 
-    fetch(iconSrc)
-      .then(res => {
-        if (!res.ok) throw new Error('Icon not found');
-        return res.text();
-      })
-      .then(svg => {
-        setSvgContent(svg);
-        setIconExists(true);
-      })
-      .catch(() => {
-        setIconExists(false);
-      });
-  }, [name, category, fill]);
+  // Get icon from map
+  const iconData = iconsMap.get(name);
 
-  if (!iconExists) {
-    // Fallback placeholder
-    return (
-      <div
-        className={`inline-flex items-center justify-center ${className}`}
-        // style={{ width: size, height: size }}
-      >
-        <div suppressHydrationWarning style={{ width: size, height: size }} className="w-8 h-8 bg-color-gray-200 dark:bg-color-gray-600 rounded animate-pulse" />
-      </div>
-    );
-  }
+  // Memoize SVG modification
+  const modifiedSvg = useMemo(() => {
+    // Only process on client side
+    if (!isMounted || !iconData) return null;
 
-  if (!svgContent) {
-    // Loading state
-    return (
-      <div
-        className={`inline-flex items-center justify-center ${className}`}
-        // style={{ width: size, height: size }}
-      >
-        <div suppressHydrationWarning style={{ width: size, height: size }} className="w-8 h-8 bg-color-gray-200 dark:bg-color-gray-600 rounded animate-pulse" />
-      </div>
-    );
-  }
+    // Get the appropriate SVG (outline or solid)
+    const svgContent = fill ? iconData.solid : iconData.outline;
+    if (!svgContent) return null;
 
-  // Parse and modify SVG
-  const parser = new DOMParser();
-  const svgDoc = parser.parseFromString(svgContent, 'image/svg+xml');
-  const svgElement = svgDoc.querySelector('svg');
+    // Parse and modify SVG
+    const parser = new DOMParser();
+    const svgDoc = parser.parseFromString(svgContent, 'image/svg+xml');
+    const svgElement = svgDoc.querySelector('svg');
 
-  if (svgElement) {
+    if (!svgElement) return null;
+
     // Set size
     svgElement.setAttribute('width', size.toString());
     svgElement.setAttribute('height', size.toString());
 
     // Apply color and stroke width
     if (fill) {
-      svgElement.setAttribute('fill', color);
-      svgElement.querySelectorAll('path, circle, rect, polygon, ellipse').forEach(el => {
-        el.setAttribute('fill', color);
+      // Apply colors to all elements
+      svgElement.querySelectorAll('path, circle, rect, polygon, ellipse, line, polyline').forEach(el => {
+        const originalFill = el.getAttribute('fill');
+        const originalStroke = el.getAttribute('stroke');
+
+        // Apply fill color if element has an existing fill value that's not "none"
+        if (originalFill && originalFill !== 'none') {
+          el.setAttribute('fill', color);
+        }
+
+        // Only apply stroke color if the element has a stroke
+        // Don't override strokes that are meant to be white/contrast color (like "#FFF")
+        if (originalStroke && originalStroke.toLowerCase() !== '#fff' && originalStroke.toLowerCase() !== '#ffffff' && originalStroke.toLowerCase() !== 'white') {
+          el.setAttribute('stroke', color);
+        }
       });
     } else {
       svgElement.setAttribute('stroke', color);
       svgElement.setAttribute('stroke-width', strokeWidth.toString());
       svgElement.querySelectorAll('path, circle, rect, polygon, ellipse, line, polyline').forEach(el => {
+        const originalStroke = el.getAttribute('stroke');
+
+        // If element has white stroke, remove fill to create cutout/hole
+        if (originalStroke) {
+          const strokeLower = originalStroke.toLowerCase();
+          if (strokeLower === '#fff' || strokeLower === '#ffffff' || strokeLower === 'white') {
+            el.removeAttribute('fill');
+            el.removeAttribute('stroke');
+            el.removeAttribute('stroke-width');
+            return;
+          }
+        }
+
+        // For outline mode, convert all fills to strokes
+        el.removeAttribute('fill');
+        el.setAttribute('fill', 'none');
         el.setAttribute('stroke', color);
         el.setAttribute('stroke-width', strokeWidth.toString());
       });
@@ -99,14 +107,23 @@ export default function Icon({
       svgElement.setAttribute('class', `${existingClass} ${className}`.trim());
     }
 
-    const modifiedSvg = new XMLSerializer().serializeToString(svgElement);
+    return new XMLSerializer().serializeToString(svgElement);
+  }, [isMounted, iconData, fill, size, color, strokeWidth, className, name]);
 
+  // Show placeholder during SSR and initial client render
+  if (!isMounted || !iconData || !modifiedSvg) {
     return (
       <div
-        dangerouslySetInnerHTML={{ __html: modifiedSvg }}
-      />
+        className={`inline-flex items-center justify-center ${className}`}
+      >
+        <div suppressHydrationWarning style={{ width: size, height: size }} className="w-8 h-8 bg-color-gray-200 dark:bg-color-gray-600 rounded animate-pulse" />
+      </div>
     );
   }
 
-  return null;
+  return (
+    <div
+      dangerouslySetInnerHTML={{ __html: modifiedSvg }}
+    />
+  );
 }

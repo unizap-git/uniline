@@ -10,13 +10,13 @@ function ZoomIn(props) {
   var className = props.className !== undefined ? props.className : '';
   var style = props.style !== undefined ? props.style : {};
 
-  var svgContent = fill ? '<path fill-rule="evenodd" d="M21.707 21.707a1 1 0 0 1-1.414 0l-3.5-3.5a1 1 0 0 1 1.414-1.414l3.5 3.5a1 1 0 0 1 0 1.414ZM2 10a8 8 0 1 1 16 0 8 8 0 0 1-16 0Zm9-3a1 1 0 1 0-2 0v2H7a1 1 0 0 0 0 2h2v2a1 1 0 1 0 2 0v-2h2a1 1 0 1 0 0-2h-2V7Z" clip-rule="evenodd"/>' : '<path d="m21 21-3.5-3.5M10 7v6m-3-3h6m4 0a7 7 0 1 1-14 0 7 7 0 0 1 14 0Z"/>';
+  var svgContent = fill ? '<path d="M10.5,1C5.3,1,1,5.3,1,10.5s4.3,9.5,9.5,9.5,9.5-4.3,9.5-9.5S15.7,1,10.5,1ZM13.5,11.5h-2v2c0,.6-.4,1-1,1s-1-.4-1-1v-2h-2s0,0,0,0c-.6,0-1-.4-1-1,0-.6.4-1,1-1h2v-2c0-.6.4-1,1-1s1,.4,1,1v2h2s0,0,0,0c.6,0,1,.4,1,1,0,.6-.4,1-1,1Z"/>   <path d="M16.6,16.6l4.2,4.2"/>' : '<path d="M21 38C30.3888 38 38 30.3888 38 21C38 11.6112 30.3888 4 21 4C11.6112 4 4 11.6112 4 21C4 30.3888 11.6112 38 21 38Z"/><path d="M21 15L21 27"/><path d="M15.0156 21.0156L27 21"/><path d="M33.2216 33.2217L41.7069 41.707"/>';
 
   return React.createElement('svg', {
     xmlns: 'http://www.w3.org/2000/svg',
     width: size,
     height: size,
-    viewBox: '0 0 24 24',
+    viewBox: '0 0 48 48',
     fill: fill ? color : 'none',
     stroke: fill ? 'none' : color,
     strokeWidth: fill ? 0 : strokeWidth,

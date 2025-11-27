@@ -10,13 +10,13 @@ function OpenDoor(props) {
   var className = props.className !== undefined ? props.className : '';
   var style = props.style !== undefined ? props.style : {};
 
-  var svgContent = fill ? '<path d="M14 19V5h4a1 1 0 0 1 1 1v11h1a1 1 0 0 1 0 2h-6Z"/>   <path fill-rule="evenodd" d="M12 4.571a1 1 0 0 0-1.275-.961l-5 1.428A1 1 0 0 0 5 6v11H4a1 1 0 0 0 0 2h1.86l4.865 1.39A1 1 0 0 0 12 19.43V4.57ZM10 11a1 1 0 0 1 1 1v.5a1 1 0 0 1-2 0V12a1 1 0 0 1 1-1Z" clip-rule="evenodd"/>' : '<path d="M18 18V6h-5v12h5Zm0 0h2M4 18h2.5m3.5-5.5V12M6 6l7-2v16l-7-2V6Z"/>';
+  var svgContent = fill ? '<path d="M3,5h7v14H3V5Z"/>   <path d="M21.3,4L10.3,1c-.3,0-.6,0-.9.2-.2.2-.4.5-.4.8v20c0,.3.1.6.4.8.2.1.4.2.6.2s.2,0,.3,0l11-3c.4-.1.7-.5.7-1V5c0-.5-.3-.8-.7-1ZM15,13c0,.6-.4,1-1,1s-1-.4-1-1v-2c0-.6.4-1,1-1s1,.4,1,1v2Z"/>' : '<path d="M20 4V44L42 38V10L20 4Z"/><path fill-rule="evenodd" clip-rule="evenodd" d="M6 10H20V38H6V10Z"/><path d="M28 22V26"/>';
 
   return React.createElement('svg', {
     xmlns: 'http://www.w3.org/2000/svg',
     width: size,
     height: size,
-    viewBox: '0 0 24 24',
+    viewBox: '0 0 48 48',
     fill: fill ? color : 'none',
     stroke: fill ? 'none' : color,
     strokeWidth: fill ? 0 : strokeWidth,

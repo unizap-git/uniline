@@ -12,6 +12,7 @@
 
 # production
 /build
+/public/icons
 
 # misc
 .DS_Store

@@ -1,3 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
-  <path fill-rule="evenodd" d="M5 5a2 2 0 0 0-2 2v3a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1V7a2 2 0 0 0-2-2H5Zm9 2a1 1 0 1 0 0 2h.01a1 1 0 1 0 0-2H14Zm3 0a1 1 0 1 0 0 2h.01a1 1 0 1 0 0-2H17ZM3 17v-3a1 1 0 0 1 1-1h16a1 1 0 0 1 1 1v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Zm11-2a1 1 0 1 0 0 2h.01a1 1 0 1 0 0-2H14Zm3 0a1 1 0 1 0 0 2h.01a1 1 0 1 0 0-2H17Z" clip-rule="evenodd"/>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" version="1.1" viewBox="0 0 24 24">
+  <!-- Generator: Adobe Illustrator 29.8.2, SVG Export Plug-In . SVG Version: 2.1.1 Build 3)  -->
+  <path d="M22,1H2c-.6,0-1,.4-1,1v8c0,.6.4,1,1,1h20c.6,0,1-.4,1-1V2c0-.6-.4-1-1-1ZM7,6.5c0,.3-.2.5-.5.5h-1c-.3,0-.5-.2-.5-.5v-1c0-.3.2-.5.5-.5h1c.3,0,.5.2.5.5v1ZM11,6.5c0,.3-.2.5-.5.5h-1c-.3,0-.5-.2-.5-.5v-1c0-.3.2-.5.5-.5h1c.3,0,.5.2.5.5v1Z" fill="#333"/>
+  <path d="M22,13H2c-.6,0-1,.4-1,1v8c0,.6.4,1,1,1h20c.6,0,1-.4,1-1v-8c0-.6-.4-1-1-1ZM7,18.5c0,.3-.2.5-.5.5h-1c-.3,0-.5-.2-.5-.5v-1c0-.3.2-.5.5-.5h1c.3,0,.5.2.5.5v1ZM11,18.5c0,.3-.2.5-.5.5h-1c-.3,0-.5-.2-.5-.5v-1c0-.3.2-.5.5-.5h1c.3,0,.5.2.5.5v1Z" fill="#333"/>
 </svg>

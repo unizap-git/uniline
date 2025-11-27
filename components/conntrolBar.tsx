@@ -108,8 +108,8 @@ export default function ControlBar({
           <div className="relative flex items-center gap-1 bg-color-gray-100 dark:bg-color-gray-700 rounded-full h-10 px-4 border border-color-gray-200 dark:border-color-gray-600">
             <input
               type="range"
-              min="0.1"
-              max="2.5"
+              min="0.2"
+              max="4"
               step="0.1"
               value={strokeWidth}
               onChange={(e) => onStrokeWidthChange(Number(e.target.value))}

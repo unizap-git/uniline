@@ -10,13 +10,13 @@ function Sort(props) {
   var className = props.className !== undefined ? props.className : '';
   var style = props.style !== undefined ? props.style : {};
 
-  var svgContent = fill ? '<path d="M8,21h0c-.1,0-.3,0-.4,0-.1,0-.2-.1-.3-.2l-3-3c-.4-.4-.4-1,0-1.4s1-.4,1.4,0l1.3,1.3v-7.6c0-.6.4-1,1-1s1,.4,1,1v7.6l1.3-1.3c.4-.4,1-.4,1.4,0s.4,1,0,1.4l-3,3c0,0-.2.2-.3.2-.1,0-.2,0-.4,0h0ZM16,15c-.6,0-1-.4-1-1v-7.6l-1.3,1.3c-.4.4-1,.4-1.4,0s-.4-1,0-1.4l3-3c0,0,.2-.2.3-.2.1,0,.2,0,.4,0h0c.1,0,.3,0,.4,0,.1,0,.2.1.3.2l3,3c.4.4.4,1,0,1.4s-1,.4-1.4,0l-1.3-1.3v7.6c0,.6-.4,1-1,1Z"/>' : '<path d="M8 20V10m0 10-3-3m3 3 3-3m5-13v10m0-10 3 3m-3-3-3 3"/>';
+  var svgContent = fill ? '<path d="M24 42L15 29H33L24 42Z"/><path d="M24 6L15 19H33L24 6Z"/>' : '<path d="M24 42L15 29H33L24 42Z"/><path d="M24 6L15 19H33L24 6Z"/>';
 
   return React.createElement('svg', {
     xmlns: 'http://www.w3.org/2000/svg',
     width: size,
     height: size,
-    viewBox: '0 0 24 24',
+    viewBox: '0 0 48 48',
     fill: fill ? color : 'none',
     stroke: fill ? 'none' : color,
     strokeWidth: fill ? 0 : strokeWidth,

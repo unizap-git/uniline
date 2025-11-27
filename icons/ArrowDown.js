@@ -10,13 +10,13 @@ function ArrowDown(props) {
   var className = props.className !== undefined ? props.className : '';
   var style = props.style !== undefined ? props.style : {};
 
-  var svgContent = fill ? '<path d="M12,20h0c-.1,0-.3,0-.4,0-.1,0-.2-.1-.3-.2l-4-4c-.4-.4-.4-1,0-1.4s1-.4,1.4,0l2.3,2.3V5c0-.6.4-1,1-1s1,.4,1,1v11.6l2.3-2.3c.4-.4,1-.4,1.4,0s.4,1,0,1.4l-4,4c0,0-.2.2-.3.2-.1,0-.2,0-.4,0h0Z"/>' : '<path d="M12 19V5m0 14-4-4m4 4 4-4"/>';
+  var svgContent = fill ? '<path d="M24 42V6"/><path d="M36 30L24 42L12 30"/>' : '<path d="M24 42V6"/><path d="M36 30L24 42L12 30"/>';
 
   return React.createElement('svg', {
     xmlns: 'http://www.w3.org/2000/svg',
     width: size,
     height: size,
-    viewBox: '0 0 24 24',
+    viewBox: '0 0 48 48',
     fill: fill ? color : 'none',
     stroke: fill ? 'none' : color,
     strokeWidth: fill ? 0 : strokeWidth,

@@ -10,13 +10,13 @@ function Cube(props) {
   var className = props.className !== undefined ? props.className : '';
   var style = props.style !== undefined ? props.style : {};
 
-  var svgContent = fill ? '<path d="M12.378 1.602a.75.75 0 0 0-.756 0L3 6.632l9 5.25 9-5.25-8.622-5.03ZM21.75 7.93l-9 5.25v9l8.628-5.032a.75.75 0 0 0 .372-.648V7.93ZM11.25 22.18v-9l-9-5.25v8.57a.75.75 0 0 0 .372.648l8.628 5.033Z"/>' : '<path d="m21 7.5-9-5.25L3 7.5m18 0-9 5.25m9-5.25v9l-9 5.25M3 7.5l9 5.25M3 7.5v9l9 5.25m0-9v9"/>';
+  var svgContent = fill ? '<path d="M15.5 9L7 14V24V34L15.5 39L24 44L32.5001 39L41 34V24V14L32.5001 9L24 4L15.5 9Z"/><path d="M41 14L24 24"/><path d="M7 14L24 24"/><path d="M24 44V24"/><path d="M32 19L32 39"/><path d="M41 24L24 34"/><path d="M24 34L7 24"/><path d="M16 39L16 19"/><path d="M32 9L16 19"/><path d="M32 19L16 9"/>' : '<path d="M15.5 9L7 14V24V34L15.5 39L24 44L32.5001 39L41 34V24V14L32.5001 9L24 4L15.5 9Z"/><path d="M41 14L24 24"/><path d="M7 14L24 24"/><path d="M24 44V24"/><path d="M32 19L32 39"/><path d="M41 24L24 34"/><path d="M24 34L7 24"/><path d="M16 39L16 19"/><path d="M32 9L16 19"/><path d="M32 19L16 9"/>';
 
   return React.createElement('svg', {
     xmlns: 'http://www.w3.org/2000/svg',
     width: size,
     height: size,
-    viewBox: '0 0 24 24',
+    viewBox: '0 0 48 48',
     fill: fill ? color : 'none',
     stroke: fill ? 'none' : color,
     strokeWidth: fill ? 0 : strokeWidth,

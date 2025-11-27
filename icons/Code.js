@@ -10,13 +10,13 @@ function Code(props) {
   var className = props.className !== undefined ? props.className : '';
   var style = props.style !== undefined ? props.style : {};
 
-  var svgContent = fill ? '<path d="m8 8-4 4 4 4m8 0 4-4-4-4m-2-3-4 14"/>' : '<path d="m8 8-4 4 4 4m8 0 4-4-4-4m-2-3-4 14"/>';
+  var svgContent = fill ? '<path d="M16 13L4 25.4322L16 37"/><path d="M32 13L44 25.4322L32 37"/><path d="M28 4L21 44"/>' : '<path d="M16 13L4 25.4322L16 37"/><path d="M32 13L44 25.4322L32 37"/><path d="M28 4L21 44"/>';
 
   return React.createElement('svg', {
     xmlns: 'http://www.w3.org/2000/svg',
     width: size,
     height: size,
-    viewBox: '0 0 24 24',
+    viewBox: '0 0 48 48',
     fill: fill ? color : 'none',
     stroke: fill ? 'none' : color,
     strokeWidth: fill ? 0 : strokeWidth,

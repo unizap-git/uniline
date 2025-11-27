@@ -10,13 +10,13 @@ function Messages(props) {
   var className = props.className !== undefined ? props.className : '';
   var style = props.style !== undefined ? props.style : {};
 
-  var svgContent = fill ? '<path fill-rule="evenodd" d="M4 3a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h1v2a1 1 0 0 0 1.707.707L9.414 13H15a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1H4Z" clip-rule="evenodd"/>   <path fill-rule="evenodd" d="M8.023 17.215c.033-.03.066-.062.098-.094L10.243 15H15a3 3 0 0 0 3-3V8h2a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1h-1v2a1 1 0 0 1-1.707.707L14.586 18H9a1 1 0 0 1-.977-.785Z" clip-rule="evenodd"/>' : '<path d="M9 17h6l3 3v-3h2V9h-2M4 4h11v8H9l-3 3v-3H4V4Z"/>';
+  var svgContent = fill ? '<path d="M12,12.5h-1c-.6,0-1,.4-1,1s.4,1,1,1h1c.6,0,1-.4,1-1s-.4-1-1-1Z"/>   <path d="M14,9.5h-3c-.6,0-1,.4-1,1s.4,1,1,1h3c.6,0,1-.4,1-1s-.4-1-1-1Z"/>   <path d="M19.5,2H4.5c-1.4,0-2.5,1.1-2.5,2.5v15c0,1.4,1.1,2.5,2.5,2.5h15c1.4,0,2.5-1.1,2.5-2.5V4.5c0-1.4-1.1-2.5-2.5-2.5ZM12.5,17.5h-5c-.6,0-1-.4-1-1v-5c0-3.3,2.7-6,6-6s6,2.7,6,6-2.7,6-6,6Z"/>' : '<path d="M39 6H9C7.34315 6 6 7.34315 6 9V39C6 40.6569 7.34315 42 9 42H39C40.6569 42 42 40.6569 42 39V9C42 7.34315 40.6569 6 39 6Z"/><path d="M35 23C35 28.5229 30.5229 33 25 33C22.0133 33 15 33 15 33C15 33 15 25.5361 15 23C15 17.4771 19.4771 13 25 13C30.5229 13 35 17.4771 35 23Z"/><path d="M22 21H28"/><path d="M22 27H24"/>';
 
   return React.createElement('svg', {
     xmlns: 'http://www.w3.org/2000/svg',
     width: size,
     height: size,
-    viewBox: '0 0 24 24',
+    viewBox: '0 0 48 48',
     fill: fill ? color : 'none',
     stroke: fill ? 'none' : color,
     strokeWidth: fill ? 0 : strokeWidth,

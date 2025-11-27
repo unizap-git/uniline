@@ -1,0 +1,31 @@
+'use strict';
+
+var React = require('react');
+
+function RightBranchTwo(props) {
+  var size = props.size !== undefined ? props.size : 24;
+  var strokeWidth = props.strokeWidth !== undefined ? props.strokeWidth : 1.5;
+  var color = props.color !== undefined ? props.color : 'currentColor';
+  var fill = props.fill !== undefined ? props.fill : false;
+  var className = props.className !== undefined ? props.className : '';
+  var style = props.style !== undefined ? props.style : {};
+
+  var svgContent = fill ? '<path d="M4 24H14"/><path d="M44 8C40.7164 8.46377 35.0448 10.7826 29.2239 16.3478C23.9021 21.4358 17.4328 23.7681 14 24"/><path d="M14 24C17.2836 24.4638 22.9552 26.7826 28.7761 32.3478C34.0979 37.4358 40.5672 39.7681 44 40"/>' : '<path d="M4 24H14"/><path d="M44 8C40.7164 8.46377 35.0448 10.7826 29.2239 16.3478C23.9021 21.4358 17.4328 23.7681 14 24"/><path d="M14 24C17.2836 24.4638 22.9552 26.7826 28.7761 32.3478C34.0979 37.4358 40.5672 39.7681 44 40"/>';
+
+  return React.createElement('svg', {
+    xmlns: 'http://www.w3.org/2000/svg',
+    width: size,
+    height: size,
+    viewBox: '0 0 48 48',
+    fill: fill ? color : 'none',
+    stroke: fill ? 'none' : color,
+    strokeWidth: fill ? 0 : strokeWidth,
+    strokeLinecap: 'round',
+    strokeLinejoin: 'round',
+    className: className,
+    style: style,
+    dangerouslySetInnerHTML: { __html: svgContent }
+  });
+}
+
+module.exports = RightBranchTwo;

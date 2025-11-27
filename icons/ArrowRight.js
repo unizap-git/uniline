@@ -10,13 +10,13 @@ function ArrowRight(props) {
   var className = props.className !== undefined ? props.className : '';
   var style = props.style !== undefined ? props.style : {};
 
-  var svgContent = fill ? '<path d="M15,17c-.3,0-.5,0-.7-.3-.4-.4-.4-1,0-1.4l2.3-2.3H5c-.6,0-1-.4-1-1s.4-1,1-1h11.6l-2.3-2.3c-.4-.4-.4-1,0-1.4s1-.4,1.4,0l4,4c0,0,.2.2.2.3,0,.1,0,.2,0,.4h0c0,.1,0,.3,0,.4,0,.1-.1.2-.2.3l-4,4c-.2.2-.5.3-.7.3Z"/>' : '<path d="M19 12H5m14 0-4 4m4-4-4-4"/>';
+  var svgContent = fill ? '<path d="M41.9999 24H5.99994"/><path d="M30 12L42 24L30 36"/>' : '<path d="M41.9999 24H5.99994"/><path d="M30 12L42 24L30 36"/>';
 
   return React.createElement('svg', {
     xmlns: 'http://www.w3.org/2000/svg',
     width: size,
     height: size,
-    viewBox: '0 0 24 24',
+    viewBox: '0 0 48 48',
     fill: fill ? color : 'none',
     stroke: fill ? 'none' : color,
     strokeWidth: fill ? 0 : strokeWidth,

@@ -1,3 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5.464V3.099m0 2.365a5.338 5.338 0 0 1 5.133 5.368v1.8c0 2.386 1.867 2.982 1.867 4.175C19 17.4 19 18 18.462 18H5.538C5 18 5 17.4 5 16.807c0-1.193 1.867-1.789 1.867-4.175v-1.8A5.338 5.338 0 0 1 12 5.464ZM6 5 5 4M4 9H3m15-4 1-1m1 5h1M8.54 18a3.48 3.48 0 0 0 6.92 0H8.54Z"/>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" width="48" height="48" version="1.1" viewBox="0 0 48 48">
+  <!-- Generator: Adobe Illustrator 29.8.2, SVG Export Plug-In . SVG Version: 2.1.1 Build 3)  -->
+  <path d="M24,10.8v-4.7M24,10.8c5.8.2,10.3,5,10.3,10.7v3.6c0,4.8,3.7,6,3.7,8.3s0,2.4-1.1,2.4H11.1c-1.1,0-1.1-1.2-1.1-2.4,0-2.4,3.7-3.6,3.7-8.4v-3.6c0-5.8,4.5-10.5,10.3-10.7ZM12,9.9l-2-2M8,17.9h-2M36,9.9l2-2M40,17.9h2M17.1,35.9c.4,3.8,3.8,6.6,7.7,6.2,3.3-.4,5.8-2.9,6.2-6.2h-13.8Z" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
 </svg>

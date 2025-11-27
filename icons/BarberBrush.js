@@ -1,0 +1,31 @@
+'use strict';
+
+var React = require('react');
+
+function BarberBrush(props) {
+  var size = props.size !== undefined ? props.size : 24;
+  var strokeWidth = props.strokeWidth !== undefined ? props.strokeWidth : 1.5;
+  var color = props.color !== undefined ? props.color : 'currentColor';
+  var fill = props.fill !== undefined ? props.fill : false;
+  var className = props.className !== undefined ? props.className : '';
+  var style = props.style !== undefined ? props.style : {};
+
+  var svgContent = fill ? '<path d="M29.7961 24H16.2039C16.2039 24 12.2176 31.7083 18.7524 34.8333C22.9346 37.3333 16.2039 44 16.2039 44H29.7962C29.7962 44 23.0654 36.7083 27.2476 34.8333C33.7824 31.7083 29.7961 24 29.7961 24Z"/><path d="M37 10L30 24H16L9 10C9 10 12 4 23 4C34 4 37 10 37 10Z"/><path d="M25 24L27 12"/><path d="M21 24L19 12"/>' : '<path d="M29.7961 24H16.2039C16.2039 24 12.2176 31.7083 18.7524 34.8333C22.9346 37.3333 16.2039 44 16.2039 44H29.7962C29.7962 44 23.0654 36.7083 27.2476 34.8333C33.7824 31.7083 29.7961 24 29.7961 24Z"/><path d="M37 10L30 24H16L9 10C9 10 12 4 23 4C34 4 37 10 37 10Z"/><path d="M25 24L27 12"/><path d="M21 24L19 12"/>';
+
+  return React.createElement('svg', {
+    xmlns: 'http://www.w3.org/2000/svg',
+    width: size,
+    height: size,
+    viewBox: '0 0 48 48',
+    fill: fill ? color : 'none',
+    stroke: fill ? 'none' : color,
+    strokeWidth: fill ? 0 : strokeWidth,
+    strokeLinecap: 'round',
+    strokeLinejoin: 'round',
+    className: className,
+    style: style,
+    dangerouslySetInnerHTML: { __html: svgContent }
+  });
+}
+
+module.exports = BarberBrush;
