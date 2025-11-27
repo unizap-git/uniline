@@ -10,13 +10,13 @@ function SchoolFlagAlt(props) {
   var className = props.className !== undefined ? props.className : '';
   var style = props.style !== undefined ? props.style : {};
 
-  var svgContent = fill ? '<path d="M12 12c-.5523 0-1 .4477-1 1s.4477 1 1 1 1-.4477 1-1-.4477-1-1-1Z"/>   <path fill-rule="evenodd" d="M17 4c-.5523 0-1 .44772-1 1v4.97045l-4-4.92309-5.34889 6.58324c-.18989.2337-.47499.3694-.77612.3694H3v7c0 .5523.44772 1 1 1h16c.5523 0 1-.4477 1-1v-7h-2.875c-.0421 0-.0838-.0026-.125-.0078V9h3c.5523 0 1-.44772 1-1V5c0-.55228-.4477-1-1-1h-4Zm-8.00001 9c0-1.6568 1.34311-3 3.00001-3 1.6568 0 3 1.3432 3 3 0 1.6569-1.3432 3-3 3-1.6569 0-3.00001-1.3431-3.00001-3Z" clip-rule="evenodd"/>   <path d="M5.2 6.40001 2.5 10h2.89902l3.25-3.99999H6c-.31476 0-.61115.1482-.8.4Z"/>' : '<path d="m7.4285 11 5-6 5 6m-10 0h-3v8h16v-8h-3m-10 0H3.42851l3-4h4.33739l-3.3374 4Zm10 0V7.5m-3 5.5c0 1.1046-.8954 2-2 2s-2-.8954-2-2 .8954-2 2-2 2 .8954 2 2Zm3-8v3h4V5h-4Z"/>';
+  var svgContent = fill ? '<path d="M12,12c-.6,0-1,.4-1,1s.4,1,1,1,1-.4,1-1-.4-1-1-1Z"/>   <path d="M17,4c-.6,0-1,.4-1,1v5l-4-4.9-5.3,6.6c-.2.2-.5.4-.8.4h-2.9v7c0,.6.4,1,1,1h16c.6,0,1-.4,1-1v-7h-2.9s0,0-.1,0v-3h3c.6,0,1-.4,1-1v-3c0-.6-.4-1-1-1h-4ZM9,13c0-1.7,1.3-3,3-3s3,1.3,3,3-1.3,3-3,3-3-1.3-3-3Z" fill-rule="evenodd"/>   <path d="M5.2,6.4l-2.7,3.6h2.9l3.2-4h-2.6c-.3,0-.6.1-.8.4Z"/>' : '<path d="M14.4,22l10-12,10,12M14.4,22h-6v16.1h32.1v-16.1h-6M14.4,22H6.4l6-8h8.7s-6.7,8-6.7,8ZM34.5,22v-7M28.4,26c0,2.2-1.8,4-4,4s-4-1.8-4-4,1.8-4,4-4,4,1.8,4,4ZM34.5,9.9v6h8v-6h-8Z"/>';
 
   return React.createElement('svg', {
     xmlns: 'http://www.w3.org/2000/svg',
     width: size,
     height: size,
-    viewBox: '0 0 24 24',
+    viewBox: '0 0 48 48',
     fill: fill ? color : 'none',
     stroke: fill ? 'none' : color,
     strokeWidth: fill ? 0 : strokeWidth,

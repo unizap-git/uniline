@@ -139,8 +139,8 @@ export default function CategoryPage() {
                 {/* Search Bar */}
                 <div className="relative flex-1 w-full">
                   <Icon
-                    name="magnifying-glass"
-                    category="editor"
+                    name="search"
+                    category="basic"
                     size={20}
                     className="absolute left-3 top-1/2 -translate-y-1/2 text-color-gray-400"
                   />
@@ -156,7 +156,7 @@ export default function CategoryPage() {
                       onClick={() => setSearchQuery('')}
                       className="absolute right-3 top-1/2 -translate-y-1/2 text-color-gray-400 hover:text-color-gray-600 dark:hover:text-color-gray-300 bg-color-transparent cursor-pointer"
                     >
-                      <Icon name="x-mark" category="system" size={18} />
+                      <Icon name="close-one" fill category="system" size={18} />
                     </button>
                   )}
                 </div>
@@ -173,8 +173,8 @@ export default function CategoryPage() {
                     title="Icon Settings"
                   >
                     <Icon
-                      name="cog-6-tooth"
-                      category="system"
+                      name="setting-one"
+                      category="basic"
                       size={20}
                       className={`transition-color ${
                         showControlBar

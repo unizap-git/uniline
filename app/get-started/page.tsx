@@ -53,27 +53,27 @@ export default function GetStarted() {
           </h2>
           <div className="grid sm:grid-columns-2 gap-3">
             <div className="flex items-start gap-3 p-3 rounded-lg bg-color-gray-50 dark:bg-color-gray-800/50">
-              <Icon name="check-circle" category="system" size={20} className="text-color-primary mt-0.5 flex-shrink-0" />
+              <Icon name="check-one" category="symbol" size={20} className="text-color-primary mt-0.5 flex-shrink-0" />
               <span className="text-sm text-color-gray-600 dark:text-color-gray-400">Add icons to HTML using simple CSS classes</span>
             </div>
             <div className="flex items-start gap-3 p-3 rounded-lg bg-color-gray-50 dark:bg-color-gray-800/50">
-              <Icon name="check-circle" category="system" size={20} className="text-color-primary mt-0.5 flex-shrink-0" />
+              <Icon name="check-one" category="symbol" size={20} className="text-color-primary mt-0.5 flex-shrink-0" />
               <span className="text-sm text-color-gray-600 dark:text-color-gray-400">Import as React components with full TypeScript support</span>
             </div>
             <div className="flex items-start gap-3 p-3 rounded-lg bg-color-gray-50 dark:bg-color-gray-800/50">
-              <Icon name="check-circle" category="system" size={20} className="text-color-primary mt-0.5 flex-shrink-0" />
+              <Icon name="check-one" category="symbol" size={20} className="text-color-primary mt-0.5 flex-shrink-0" />
               <span className="text-sm text-color-gray-600 dark:text-color-gray-400">Customize size, color, and stroke width dynamically</span>
             </div>
             <div className="flex items-start gap-3 p-3 rounded-lg bg-color-gray-50 dark:bg-color-gray-800/50">
-              <Icon name="check-circle" category="system" size={20} className="text-color-primary mt-0.5 flex-shrink-0" />
+              <Icon name="check-one" category="symbol" size={20} className="text-color-primary mt-0.5 flex-shrink-0" />
               <span className="text-sm text-color-gray-600 dark:text-color-gray-400">Switch between outline and filled variants</span>
             </div>
             <div className="flex items-start gap-3 p-3 rounded-lg bg-color-gray-50 dark:bg-color-gray-800/50">
-              <Icon name="check-circle" category="system" size={20} className="text-color-primary mt-0.5 flex-shrink-0" />
+              <Icon name="check-one" category="symbol" size={20} className="text-color-primary mt-0.5 flex-shrink-0" />
               <span className="text-sm text-color-gray-600 dark:text-color-gray-400">Use via CDN for quick prototyping</span>
             </div>
             <div className="flex items-start gap-3 p-3 rounded-lg bg-color-gray-50 dark:bg-color-gray-800/50">
-              <Icon name="check-circle" category="system" size={20} className="text-color-primary mt-0.5 flex-shrink-0" />
+              <Icon name="check-one" category="symbol" size={20} className="text-color-primary mt-0.5 flex-shrink-0" />
               <span className="text-sm text-color-gray-600 dark:text-color-gray-400">Tree-shake unused icons for minimal bundle size</span>
             </div>
           </div>

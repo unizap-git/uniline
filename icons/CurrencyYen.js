@@ -10,13 +10,13 @@ function CurrencyYen(props) {
   var className = props.className !== undefined ? props.className : '';
   var style = props.style !== undefined ? props.style : {};
 
-  var svgContent = fill ? '<path fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25ZM9.624 7.084a.75.75 0 0 0-1.248.832l2.223 3.334H9a.75.75 0 0 0 0 1.5h2.25v1.5H9a.75.75 0 0 0 0 1.5h2.25v1.5a.75.75 0 0 0 1.5 0v-1.5H15a.75.75 0 0 0 0-1.5h-2.25v-1.5H15a.75.75 0 0 0 0-1.5h-1.599l2.223-3.334a.75.75 0 1 0-1.248-.832L12 10.648 9.624 7.084Z" clip-rule="evenodd"/>' : '<path d="m9 7.5 3 4.5m0 0 3-4.5M12 12v5.25M15 12H9m6 3H9m12-3a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>';
+  var svgContent = fill ? '<path d="M12,2.2C6.6,2.2,2.2,6.6,2.2,12s4.4,9.8,9.8,9.8,9.8-4.4,9.8-9.8S17.4,2.2,12,2.2ZM9.6,7.1c-.2-.3-.7-.4-1-.2-.3.2-.4.7-.2,1l2.2,3.3h-1.6c-.4,0-.8.3-.8.8s.3.8.8.8h2.2v1.5h-2.2c-.4,0-.8.3-.8.8s.3.8.8.8h2.2v1.5c0,.4.3.8.8.8s.8-.3.8-.8v-1.5h2.2c.4,0,.8-.3.8-.8s-.3-.8-.8-.8h-2.2v-1.5h2.2c.4,0,.8-.3.8-.8s-.3-.8-.8-.8h-1.6l2.2-3.3c.2-.3.1-.8-.2-1s-.8-.1-1,.2c0,0,0,0,0,0l-2.4,3.6-2.4-3.6Z" fill-rule="evenodd"/>' : '<path d="M18,15l6,9M24,24l6-9M24,24v10.5M30,24h-12M30,30h-12M42,24c0,9.9-8.1,18-18,18S6,33.9,6,24,14.1,6,24,6s18,8.1,18,18Z"/>';
 
   return React.createElement('svg', {
     xmlns: 'http://www.w3.org/2000/svg',
     width: size,
     height: size,
-    viewBox: '0 0 24 24',
+    viewBox: '0 0 48 48',
     fill: fill ? color : 'none',
     stroke: fill ? 'none' : color,
     strokeWidth: fill ? 0 : strokeWidth,

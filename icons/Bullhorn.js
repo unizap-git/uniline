@@ -10,13 +10,13 @@ function Bullhorn(props) {
   var className = props.className !== undefined ? props.className : '';
   var style = props.style !== undefined ? props.style : {};
 
-  var svgContent = fill ? '<path fill-rule="evenodd" d="M18.458 3.11A1 1 0 0 1 19 4v16a1 1 0 0 1-1.581.814L12 16.944V7.056l5.419-3.87a1 1 0 0 1 1.039-.076ZM22 12c0 1.48-.804 2.773-2 3.465v-6.93c1.196.692 2 1.984 2 3.465ZM10 8H4a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h6V8Zm0 9H5v3a1 1 0 0 0 1 1h3a1 1 0 0 0 1-1v-3Z" clip-rule="evenodd"/>' : '<path d="M11 9H5a1 1 0 0 0-1 1v4a1 1 0 0 0 1 1h6m0-6v6m0-6 5.419-3.87A1 1 0 0 1 18 5.942v12.114a1 1 0 0 1-1.581.814L11 15m7 0a3 3 0 0 0 0-6M6 15h3v5H6v-5Z"/>';
+  var svgContent = fill ? '<path d="M18.5,3.1c.3.2.5.5.5.9v16c0,.6-.4,1-1,1-.2,0-.4,0-.6-.2l-5.4-3.9V7.1l5.4-3.9c.3-.2.7-.2,1,0ZM22,12c0,1.5-.8,2.8-2,3.5v-6.9c1.2.7,2,2,2,3.5ZM10,8h-6c-.6,0-1,.4-1,1v6c0,.6.4,1,1,1h6v-8ZM10,17h-5v3c0,.6.4,1,1,1h3c.6,0,1-.4,1-1v-3Z" fill-rule="evenodd"/>' : '<path d="M21.3,17.1h-12.7c-1.2,0-2.1,1-2.1,2.1v8.5c0,1.2,1,2.1,2.1,2.1h12.7M21.3,17.1v12.7M21.3,17.1l11.5-8.2c1-.7,2.3-.5,3,.5.3.4.4.8.4,1.2v25.7c0,1.2-1,2.1-2.1,2.1-.4,0-.9-.1-1.2-.4l-11.5-8.2M36.2,29.8c3.5,0,6.4-2.9,6.4-6.4s-2.9-6.4-6.4-6.4M10.7,29.8h6.4v10.6h-6.4v-10.6Z"/>';
 
   return React.createElement('svg', {
     xmlns: 'http://www.w3.org/2000/svg',
     width: size,
     height: size,
-    viewBox: '0 0 24 24',
+    viewBox: '0 0 48 48',
     fill: fill ? color : 'none',
     stroke: fill ? 'none' : color,
     strokeWidth: fill ? 0 : strokeWidth,

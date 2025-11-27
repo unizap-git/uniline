@@ -10,13 +10,13 @@ function Npm(props) {
   var className = props.className !== undefined ? props.className : '';
   var style = props.style !== undefined ? props.style : {};
 
-  var svgContent = fill ? '<path d="M20,2.9H4c-.6,0-1,.4-1,1v16c0,.6.4,1,1,1h8c.6,0,1-.4,1-1V7.9h3v12c0,.6.4,1,1,1h3c.6,0,1-.4,1-1V3.9c0-.6-.4-1-1-1Z"/>' : '<path d="M5.2,3.5h13.6c.9,0,1.7.8,1.7,1.7v13.6c0,.9-.8,1.7-1.7,1.7h-2.5V7.8h-4.2v12.7h-6.8c-.9,0-1.7-.8-1.7-1.7V5.2c0-.9.8-1.7,1.7-1.7Z"/>';
+  var svgContent = fill ? '<path d="M20,2.9H4c-.6,0-1,.4-1,1v16c0,.6.4,1,1,1h8c.6,0,1-.4,1-1V7.9h3v12c0,.6.4,1,1,1h3c.6,0,1-.4,1-1V3.9c0-.6-.4-1-1-1Z"/>' : '<path d="M9.5,5.9h29c1.9,0,3.6,1.7,3.6,3.6v29c0,1.9-1.7,3.6-3.6,3.6h-5.3V15.1h-8.9v27h-14.5c-1.9,0-3.6-1.7-3.6-3.6V9.5c0-1.9,1.7-3.6,3.6-3.6h-.2Z"/>';
 
   return React.createElement('svg', {
     xmlns: 'http://www.w3.org/2000/svg',
     width: size,
     height: size,
-    viewBox: '0 0 24 24',
+    viewBox: '0 0 48 48',
     fill: fill ? color : 'none',
     stroke: fill ? 'none' : color,
     strokeWidth: fill ? 0 : strokeWidth,

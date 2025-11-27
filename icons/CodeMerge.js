@@ -10,13 +10,13 @@ function CodeMerge(props) {
   var className = props.className !== undefined ? props.className : '';
   var style = props.style !== undefined ? props.style : {};
 
-  var svgContent = fill ? '<path fill-rule="evenodd" d="M5 6a3 3 0 1 1 4 2.83V9a4 4 0 0 0 4 4h.17a3.001 3.001 0 1 1 0 2H13a5.978 5.978 0 0 1-4-1.528v1.699a3.001 3.001 0 1 1-2 0V8.829A3.001 3.001 0 0 1 5 6Z" clip-rule="evenodd"/>' : '<path d="M8 8v8m0-8a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm0 8a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm6-2a2 2 0 1 1 4 0 2 2 0 0 1-4 0Zm0 0h-1a5 5 0 0 1-5-5v-.5"/>';
+  var svgContent = fill ? '<path d="M5,6c0-1.7,1.3-3,3-3,1.7,0,3,1.3,3,3,0,1.3-.8,2.4-2,2.8v.2c0,2.2,1.8,4,4,4h.2c.6-1.6,2.3-2.4,3.8-1.8,1.6.6,2.4,2.3,1.8,3.8s-2.3,2.4-3.8,1.8c-.9-.3-1.5-1-1.8-1.8h-.2c-1.5,0-2.9-.5-4-1.5v1.7c1.6.6,2.4,2.3,1.8,3.8-.6,1.6-2.3,2.4-3.8,1.8-1.6-.6-2.4-2.3-1.8-3.8.3-.9,1-1.5,1.8-1.8v-6.3c-1.2-.4-2-1.6-2-2.8Z" fill-rule="evenodd"/>' : '<path d="M15,15v18M15,15c2.5,0,4.5-2,4.5-4.5s-2-4.5-4.5-4.5-4.5,2-4.5,4.5,2,4.5,4.5,4.5ZM15,33c-2.5,0-4.5,2-4.5,4.5s2,4.5,4.5,4.5,4.5-2,4.5-4.5-2-4.5-4.5-4.5ZM28.5,28.5c0-2.5,2-4.5,4.5-4.5s4.5,2,4.5,4.5-2,4.5-4.5,4.5-4.5-2-4.5-4.5ZM28.5,28.5h-2.2c-6.2,0-11.2-5-11.2-11.2v-1.1"/>';
 
   return React.createElement('svg', {
     xmlns: 'http://www.w3.org/2000/svg',
     width: size,
     height: size,
-    viewBox: '0 0 24 24',
+    viewBox: '0 0 48 48',
     fill: fill ? color : 'none',
     stroke: fill ? 'none' : color,
     strokeWidth: fill ? 0 : strokeWidth,

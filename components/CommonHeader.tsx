@@ -17,7 +17,7 @@ interface ThemeOption {
 const themeOptions: ThemeOption[] = [
   { value: 'light', label: 'Light', iconName: 'sun', iconCategory: 'weather' },
   { value: 'dark', label: 'Dark', iconName: 'moon', iconCategory: 'weather' },
-  { value: 'system', label: 'System', iconName: 'computer-desktop', iconCategory: 'system' },
+  { value: 'system', label: 'System', iconName: 'setting-computer', iconCategory: 'system' },
 ];
 
 export default function CommonHeader() {

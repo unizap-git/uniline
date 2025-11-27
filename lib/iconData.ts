@@ -779,6 +779,8 @@ export const iconCategories: IconCategory[] = [
       { name: "platte", componentName: "platte", category: "components", keywords: ["platte","components"] },
       { name: "switch-button", componentName: "switch-button", category: "components", keywords: ["switch","button","components"] },
       { name: "table-file", componentName: "table-file", category: "components", keywords: ["table","file","components","document","paper","page"] },
+      { name: "toggle-off", componentName: "toggle-off", category: "components", keywords: ["toggle","off","components"] },
+      { name: "toggle-on", componentName: "toggle-on", category: "components", keywords: ["toggle","on","components"] },
       { name: "tree-list", componentName: "tree-list", category: "components", keywords: ["tree","list","components"] }
     ]
   },

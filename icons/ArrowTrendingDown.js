@@ -10,13 +10,13 @@ function ArrowTrendingDown(props) {
   var className = props.className !== undefined ? props.className : '';
   var style = props.style !== undefined ? props.style : {};
 
-  var svgContent = fill ? '<path fill-rule="evenodd" d="M1.72 5.47a.75.75 0 0 1 1.06 0L9 11.69l3.756-3.756a.75.75 0 0 1 .985-.066 12.698 12.698 0 0 1 4.575 6.832l.308 1.149 2.277-3.943a.75.75 0 1 1 1.299.75l-3.182 5.51a.75.75 0 0 1-1.025.275l-5.511-3.181a.75.75 0 0 1 .75-1.3l3.943 2.277-.308-1.149a11.194 11.194 0 0 0-3.528-5.617l-3.809 3.81a.75.75 0 0 1-1.06 0L1.72 6.53a.75.75 0 0 1 0-1.061Z" clip-rule="evenodd"/>' : '<path d="M2.25 6 9 12.75l4.286-4.286a11.948 11.948 0 0 1 4.306 6.43l.776 2.898m0 0 3.182-5.511m-3.182 5.51-5.511-3.181"/>';
+  var svgContent = fill ? '<path d="M1.7,5.5c.3-.3.8-.3,1.1,0l6.2,6.2,3.8-3.8c.3-.3.7-.3,1,0,2.2,1.7,3.8,4.1,4.6,6.8l.3,1.1,2.3-3.9c.2-.4.7-.5,1-.3s.5.7.3,1c0,0,0,0,0,0l-3.2,5.5c-.2.4-.7.5-1,.3,0,0,0,0,0,0l-5.5-3.2c-.4-.2-.5-.7-.3-1,.2-.4.7-.5,1-.3l3.9,2.3-.3-1.1c-.6-2.2-1.8-4.1-3.5-5.6l-3.8,3.8c-.3.3-.8.3-1.1,0L1.7,6.5c-.3-.3-.3-.8,0-1.1,0,0,0,0,0,0h0Z" fill-rule="evenodd"/>' : '<path d="M5.8,12.9l12.6,12.6,8-8c3.9,3,6.8,7.2,8.1,12l1.5,5.4M36,34.9l6-10.3M36,34.9l-10.3-6"/>';
 
   return React.createElement('svg', {
     xmlns: 'http://www.w3.org/2000/svg',
     width: size,
     height: size,
-    viewBox: '0 0 24 24',
+    viewBox: '0 0 48 48',
     fill: fill ? color : 'none',
     stroke: fill ? 'none' : color,
     strokeWidth: fill ? 0 : strokeWidth,

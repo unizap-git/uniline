@@ -23,7 +23,7 @@ function Icon({
   name,
   category,
   size = 32,
-  strokeWidth = 1.5,
+  strokeWidth = 2,
   color = 'currentColor',
   fill = false,
   className = ''
