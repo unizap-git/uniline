@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo } from 'react';
+import { useState, useEffect, useMemo, memo } from 'react';
 import iconsDataRaw from '@/lib/icons.json';
 
 // Ensure iconsData is always an array
@@ -19,7 +19,7 @@ const iconsMap = new Map(
   iconsData.map((icon: any) => [icon.name, icon])
 );
 
-export default function Icon({
+function Icon({
   name,
   category,
   size = 32,
@@ -127,3 +127,6 @@ export default function Icon({
     />
   );
 }
+
+// Memoize the Icon component to prevent unnecessary re-renders
+export default memo(Icon);

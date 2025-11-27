@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useMemo, useEffect } from 'react';
+import { useState, useMemo, useEffect, useCallback } from 'react';
 import Sidebar from '@/components/Sidebar';
 import IconGrid from '@/components/IconGrid';
 import IconDialog from '@/components/IconDialog';
@@ -12,6 +12,23 @@ import { iconCategories } from '@/lib/iconData';
 import { IconSettings, IconItem } from '@/lib/types';
 import { useTheme } from '@/lib/themeContext';
 
+// Debounce hook for performance optimization
+function useDebounce<T>(value: T, delay: number): T {
+  const [debouncedValue, setDebouncedValue] = useState<T>(value);
+
+  useEffect(() => {
+    const handler = setTimeout(() => {
+      setDebouncedValue(value);
+    }, delay);
+
+    return () => {
+      clearTimeout(handler);
+    };
+  }, [value, delay]);
+
+  return debouncedValue;
+}
+
 export default function AllIcons() {
   const { theme } = useTheme();
   const [selectedIcon, setSelectedIcon] = useState<IconItem | null>(null);
@@ -20,7 +37,7 @@ export default function AllIcons() {
   const [searchQuery, setSearchQuery] = useState('');
   const [showControlBar, setShowControlBar] = useState(false);
 
-  // Initialize icon settings from localStorage
+  // Initialize icon settings with default values (avoid hydration mismatch)
   const [iconSettings, setIconSettings] = useState<IconSettings>(() => {
     if (typeof window !== 'undefined') {
       const saved = localStorage.getItem('iconSettings');
@@ -39,6 +56,21 @@ export default function AllIcons() {
       variant: 'line'
     };
   });
+
+  // Debounce icon settings for performance (only update icons after user stops adjusting)
+  const debouncedIconSettings = useDebounce(iconSettings, 150);
+
+  // Load settings from localStorage after mount (client-side only)
+  useEffect(() => {
+    const saved = localStorage.getItem('iconSettings');
+    if (saved) {
+      try {
+        setIconSettings(JSON.parse(saved));
+      } catch (e) {
+        console.error('Failed to parse saved icon settings:', e);
+      }
+    }
+  }, []);
 
   // Save icon settings to localStorage whenever they change
   useEffect(() => {
@@ -204,7 +236,7 @@ export default function AllIcons() {
             categories={filteredCategories}
             onIconClick={handleIconClick}
             onCategoryVisible={handleCategoryVisible}
-            iconSettings={iconSettings}
+            iconSettings={debouncedIconSettings}
           />
         </main>
       </div>

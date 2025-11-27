@@ -2,7 +2,7 @@
 
 import { IconCategory, IconItem } from "@/lib/iconData";
 import Icon from "@/components/Icon";
-import { useState, useEffect } from "react";
+import { useState, useEffect, memo, useCallback } from "react";
 import iconsDataRaw from '@/lib/icons.json';
 
 // Ensure iconsData is always an array
