@@ -2,7 +2,7 @@
 
 import { IconCategory, IconItem } from "@/lib/iconData";
 import Icon from "@/components/Icon";
-import { useState, useEffect, memo, useCallback } from "react";
+import { useState, useEffect, memo, useCallback, useRef } from "react";
 import iconsDataRaw from '@/lib/icons.json';
 
 // Ensure iconsData is always an array
@@ -27,6 +27,163 @@ interface IconGridProps {
   onCategoryVisible: (categoryId: string) => void;
   iconSettings: IconSettings;
 }
+
+// Memoized icon card component to prevent unnecessary re-renders
+const IconCard = memo(function IconCard({
+  icon,
+  iconSettings,
+  onIconClick,
+  copiedIconName,
+  copiedJSXName,
+  onCopySVG,
+  onCopyJSX,
+}: {
+  icon: IconItem;
+  iconSettings: IconSettings;
+  onIconClick: (icon: IconItem, isFill: boolean) => void;
+  copiedIconName: string | null;
+  copiedJSXName: string | null;
+  onCopySVG: (icon: IconItem, e: React.MouseEvent) => void;
+  onCopyJSX: (icon: IconItem, e: React.MouseEvent) => void;
+}) {
+  return (
+    <div className="group">
+      <div className="cursor-pointer flex relative flex-col items-center justify-center p-4 aspect-square rounded-xl border border-color-gray-200 dark:border-color-gray-600 transition-all">
+        <div onClick={() => onIconClick(icon, iconSettings.variant === "fill")} className="w-full h-full flex items-center justify-center overflow-hidden">
+          <Icon
+            name={icon.name}
+            category={icon.category}
+            size={iconSettings.size}
+            strokeWidth={iconSettings.strokeWidth}
+            color={iconSettings.color}
+            fill={iconSettings.variant === "fill"}
+            className="max-w-full max-h-full group-hover:scale-80 transition-all duration-300"
+          />
+        </div>
+        {/* Hover Buttons */}
+        <div className="absolute z-10 bg-color-white dark:bg-color-gray-900 opacity-0 group-hover:opacity-100 inset-0 p-1 flex flex-col transition-all duration-300 border-2 border-color-primary">
+          <span className="size-3 rounded-full border-2 absolute -left-1.5 -top-1.5 bg-color-white dark:bg-color-gray-900 border-color-primary"></span>
+          <span className="size-3 rounded-full border-2 absolute -right-1.5 -top-1.5 bg-color-white dark:bg-color-gray-900 border-color-primary"></span>
+          <span className="size-3 rounded-full border-2 absolute -left-1.5 -bottom-1.5 bg-color-white dark:bg-color-gray-900 border-color-primary"></span>
+          <span className="size-3 rounded-full border-2 absolute -right-1.5 -bottom-1.5 bg-color-white dark:bg-color-gray-900 border-color-primary"></span>
+          <div className="flex flex-1 flex-col justify-center space-y-1 *:rounded-md">
+            <button
+              onClick={(e) => onCopySVG(icon, e)}
+              className="flex-1 py-1.5 cursor-pointer bg-color-gray-100 dark:bg-color-gray-800 dark:text-color-gray-200 dark:hover:bg-color-primary text-color-blue-950 text-sm font-semibold hover:bg-color-primary hover:text-color-white transition-all"
+            >
+              {copiedIconName === icon.name ? 'Copied!' : 'Copy SVG'}
+            </button>
+            <button
+              onClick={(e) => onCopyJSX(icon, e)}
+              className="flex-1 py-1.5 cursor-pointer bg-color-gray-100 dark:bg-color-gray-800 dark:text-color-gray-200 dark:hover:bg-color-primary text-color-blue-950 text-sm font-semibold hover:bg-color-primary hover:text-color-white transition-all duration-300"
+            >
+              {copiedJSXName === icon.name ? 'Copied!' : 'Copy JSX'}
+            </button>
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                onIconClick(icon, iconSettings.variant === "fill");
+              }}
+              className="flex-1 py-1.5 cursor-pointer bg-color-gray-100 dark:bg-color-gray-800 dark:text-color-gray-200 dark:hover:bg-color-primary text-color-blue-950 text-sm font-semibold hover:bg-color-primary hover:text-color-white transition-all duration-300"
+            >
+              View Details
+            </button>
+          </div>
+        </div>
+      </div>
+      <span className="select-all mt-2 block text-xs text-color-gray-600 dark:text-color-gray-300 text-center line-clamp-2">
+        uni-{icon.name}
+      </span>
+    </div>
+  );
+});
+
+// Virtualized category section that only renders icons when visible
+const VirtualizedCategory = memo(function VirtualizedCategory({
+  category,
+  iconSettings,
+  onIconClick,
+  copiedIconName,
+  copiedJSXName,
+  onCopySVG,
+  onCopyJSX,
+}: {
+  category: IconCategory;
+  iconSettings: IconSettings;
+  onIconClick: (icon: IconItem, isFill: boolean) => void;
+  copiedIconName: string | null;
+  copiedJSXName: string | null;
+  onCopySVG: (icon: IconItem, e: React.MouseEvent) => void;
+  onCopyJSX: (icon: IconItem, e: React.MouseEvent) => void;
+}) {
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        // Start rendering when section is near viewport (500px buffer)
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      {
+        rootMargin: '500px 0px',
+        threshold: 0,
+      }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
+  // Calculate approximate height based on icon count (for placeholder)
+  const iconHeight = 180; // approx height per icon including gap
+  const iconsPerRow = 6; // approximate icons per row
+  const rows = Math.ceil(category.icons.length / iconsPerRow);
+  const estimatedHeight = rows * iconHeight;
+
+  return (
+    <section
+      ref={sectionRef}
+      id={category.id}
+      data-category={category.id}
+      className="mb-12 scroll-mt-8"
+      style={{ minHeight: isVisible ? 'auto' : estimatedHeight }}
+    >
+      <h3 className="text-xl md:text-2xl font-semibold text-color-gray-900 dark:text-color-white mb-6">
+        {category.name}
+      </h3>
+
+      {isVisible ? (
+        <div className="grid grid-columns-[repeat(auto-fill,minmax(140px,1fr))] gap-4">
+          {category.icons.map((icon) => (
+            <IconCard
+              key={icon.name}
+              icon={icon}
+              iconSettings={iconSettings}
+              onIconClick={onIconClick}
+              copiedIconName={copiedIconName}
+              copiedJSXName={copiedJSXName}
+              onCopySVG={onCopySVG}
+              onCopyJSX={onCopyJSX}
+            />
+          ))}
+        </div>
+      ) : (
+        <div className="grid grid-columns-[repeat(auto-fill,minmax(140px,1fr))] gap-4">
+          {/* Skeleton placeholders */}
+          {Array.from({ length: Math.min(category.icons.length, 12) }).map((_, i) => (
+            <div key={i} className="aspect-square rounded-xl bg-color-gray-100 dark:bg-color-gray-800 animate-pulse" />
+          ))}
+        </div>
+      )}
+    </section>
+  );
+});
 
 export default function IconGrid({
   categories,
@@ -236,75 +393,18 @@ export default function IconGrid({
           </div>
         )}
 
-        {/* Icon Categories */}
+        {/* Icon Categories - Virtualized */}
         {categories.map((category) => (
-          <section
+          <VirtualizedCategory
             key={category.id}
-            id={category.id}
-            data-category={category.id}
-            className="mb-12 scroll-mt-8"
-          >
-            <h3 className="text-xl md:text-2xl font-semibold text-color-gray-900 dark:text-color-white mb-6">
-              {category.name}
-            </h3>
-
-            <div className="grid grid-columns-[repeat(auto-fill,minmax(140px,1fr))] gap-4">
-              {category.icons.map((icon) => (
-                <div
-                  key={icon.name}
-                  className="group"
-                >
-                  {/* Icon Display */}
-                  <div className="cursor-pointer flex relative flex-col items-center justify-center p-4 aspect-square rounded-xl border border-color-gray-200 dark:border-color-gray-600 transition-all">
-                    <div onClick={() => onIconClick(icon, iconSettings.variant === "fill")} className="w-full h-full flex items-center justify-center overflow-hidden">
-                      <Icon
-                        name={icon.name}
-                        category={icon.category}
-                        size={iconSettings.size}
-                        strokeWidth={iconSettings.strokeWidth}
-                        color={iconSettings.color}
-                        fill={iconSettings.variant === "fill"}
-                        className="max-w-full max-h-full group-hover:scale-80 transition-all duration-300"
-                      />
-                    </div>
-                     {/* Hover Buttons */}
-                    <div className="absolute z-10 bg-color-white dark:bg-color-gray-900 opacity-0 group-hover:opacity-100 inset-0 p-1 flex flex-col transition-all duration-300 border-2 border-color-primary">
-                      <span className="size-3 rounded-full border-2 absolute -left-1.5 -top-1.5 bg-color-white dark:bg-color-gray-900 border-color-primary"></span>
-                      <span className="size-3 rounded-full border-2 absolute -right-1.5 -top-1.5 bg-color-white dark:bg-color-gray-900 border-color-primary"></span>
-                      <span className="size-3 rounded-full border-2 absolute -left-1.5 -bottom-1.5 bg-color-white dark:bg-color-gray-900 border-color-primary"></span>
-                      <span className="size-3 rounded-full border-2 absolute -right-1.5 -bottom-1.5 bg-color-white dark:bg-color-gray-900 border-color-primary"></span>
-                     <div className="flex flex-1 flex-col justify-center space-y-1 *:rounded-md">
-                       <button
-                        onClick={(e) => copySVGToClipboard(icon, e)}
-                        className="flex-1 py-1.5 cursor-pointer bg-color-gray-100 dark:bg-color-gray-800 dark:text-color-gray-200 dark:hover:bg-color-primary text-color-blue-950 text-sm font-semibold hover:bg-color-primary hover:text-color-white transition-all"
-                      >
-                        {copiedIconName === icon.name ? 'Copied!' : 'Copy SVG'}
-                      </button>
-                      <button
-                        onClick={(e) => copyJSXToClipboard(icon, e)}
-                        className="flex-1 py-1.5 cursor-pointer bg-color-gray-100 dark:bg-color-gray-800 dark:text-color-gray-200 dark:hover:bg-color-primary text-color-blue-950 text-sm font-semibold hover:bg-color-primary hover:text-color-white transition-all duration-300"
-                      >
-                        {copiedJSXName === icon.name ? 'Copied!' : 'Copy JSX'}
-                      </button>
-                      <button
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          onIconClick(icon, iconSettings.variant === "fill");
-                        }}
-                        className="flex-1 py-1.5 cursor-pointer bg-color-gray-100 dark:bg-color-gray-800 dark:text-color-gray-200 dark:hover:bg-color-primary text-color-blue-950 text-sm font-semibold hover:bg-color-primary hover:text-color-white transition-all duration-300"
-                      >
-                        View Details
-                      </button>
-                     </div>
-                    </div>
-                  </div>
-                  <span className="select-all mt-2 block text-xs text-color-gray-600 dark:text-color-gray-300 text-center line-clamp-2">
-                      uni-{icon.name}
-                  </span>
-                </div>
-              ))}
-            </div>
-          </section>
+            category={category}
+            iconSettings={iconSettings}
+            onIconClick={onIconClick}
+            copiedIconName={copiedIconName}
+            copiedJSXName={copiedJSXName}
+            onCopySVG={copySVGToClipboard}
+            onCopyJSX={copyJSXToClipboard}
+          />
         ))}
       </div>
     </div>

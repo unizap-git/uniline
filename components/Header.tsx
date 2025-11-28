@@ -109,7 +109,7 @@ export default function Header({ searchQuery, onSearchChange, iconSettings, onIc
                 onClick={() => onSearchChange("")}
                 className="absolute right-3 top-1/2 bg-color-transparent cursor-pointer -translate-y-1/2 text-color-gray-400 hover:text-color-gray-600 dark:hover:text-color-gray-300"
               >
-                <Icon name="x-mark" category="system" size={18} />
+                <Icon name="close-small" category="symbol" size={18} />
               </button>
             )}
           </div>
@@ -151,7 +151,7 @@ export default function Header({ searchQuery, onSearchChange, iconSettings, onIc
                     onClick={() => setShowControlBar(false)}
                     className="flex cursor-pointer items-center justify-center w-8 h-8 rounded-full hover:bg-color-gray-100 dark:hover:bg-color-gray-700 text-color-gray-400 hover:text-color-gray-600 dark:hover:text-color-gray-300 transition-all"
                   >
-                    <Icon name="x-mark" category="system" size={16} />
+                    <Icon name="close-small" category="symbol" size={16} />
                   </button>
                 </div>
 
