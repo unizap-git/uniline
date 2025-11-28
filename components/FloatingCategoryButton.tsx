@@ -18,7 +18,7 @@ export default function FloatingCategoryButton() {
         className="md:hidden fixed bottom-4 right-4 z-100 size-12 bg-color-primary hover:bg-color-primary/90 text-color-white rounded-full shadow-lg flex items-center justify-center transition-all cursor-pointer"
         aria-label="View categories"
       >
-        <Icon name="squares-2x2" category="system" size={24} className="text-color-white" />
+        <Icon name="all-application" fill category="basic" size={24} className="text-color-white" />
       </button>
 
       {/* Popup Overlay */}
